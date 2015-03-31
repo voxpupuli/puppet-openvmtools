@@ -2,12 +2,12 @@
   "name": "razorsedge-openvmtools",
   "version": "0.0.1",
   "author": "razorsedge",
-  "summary": "UNKNOWN",
+  "summary": "Install Open Virtual Machine Tools packages.",
   "license": "Apache-2.0",
   "source": "https://github.com/razorsedge/puppet-openvmtools.git",
   "project_page": "https://github.com/razorsedge/puppet-openvmtools",
   "issues_url": "https://github.com/razorsedge/puppet-openvmtools/issues",
-  "tags": [],
+  "tags": [ "virtualization", "vmware", "vmware-tools", "vmware_tools", "vmtools", "open-vm-tools" ],
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
@@ -16,16 +16,36 @@
   ],
   "operatingsystem_support": [
     {
+      "operatingsystem": "Fedora",
+      "operatingsystemrelease": [ "19", "20", "21" ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [ "7" ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [ "12.04", "14.04" ]
+    },
+    {
+      "operatingsystem": "OpenSUSE",
+      "operatingsystemrelease": [ "11" ]
+    },
+    {
+      "operatingsystem": "SLES",
+      "operatingsystemrelease": [ "12" ]
+    },
+    {
       "operatingsystem": "RedHat",
-      "operatingsystemrelease": [ "5", "6", "7" ]
+      "operatingsystemrelease": [ "7" ]
     },
     {
       "operatingsystem": "CentOS",
-      "operatingsystemrelease": [ "5", "6", "7" ]
+      "operatingsystemrelease": [ "7" ]
     },
     {
       "operatingsystem": "OracleLinux",
-      "operatingsystemrelease": [ "5", "6", "7" ]
+      "operatingsystemrelease": [ "7" ]
     }
   ],
   "requirements": [
