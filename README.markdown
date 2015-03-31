@@ -10,12 +10,10 @@
     * [What this module affects](#what-this-module-affects)
     * [What this module requires](#requirements)
     * [Beginning with this module](#beginning-with-this-module)
-    * [Upgrading](#upgrading)
 4. [Usage - Configuration options and additional functionality](#usage)
 5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
     * [OS Support](#os-support)
-    * [Software Support](#software-support)
     * [Notes](#notes)
     * [Issues](#issues)
 6. [Development - Guide for contributing to the module](#development)
@@ -46,7 +44,7 @@ The benefits of bundling open-vm-tools are:
 
 ###Requirements
 
-You need to be running a virtual machine on the VMware platformi and on an operating system that ships the Open Virtual Machine Tools for this module to do anything.
+You need to be running a virtual machine on the VMware platform and on an operating system that ships the Open Virtual Machine Tools for this module to do anything.
 
 ###Beginning with this module
 
