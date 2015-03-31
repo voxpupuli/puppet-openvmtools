@@ -1,6 +1,6 @@
 {
   "name": "razorsedge-openvmtools",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "razorsedge",
   "summary": "Install Open Virtual Machine Tools packages.",
   "license": "Apache-2.0",
