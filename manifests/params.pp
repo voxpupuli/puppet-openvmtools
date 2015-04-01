@@ -99,7 +99,7 @@ class openvmtools::params {
       case $::operatingsystem {
         'Debian': {
           $package_name = 'open-vm-tools'
-          $desktop_package_name = 'open-vm-tools-desktop'
+          $desktop_package_name = 'open-vm-toolbox'
           $service_name = 'open-vm-tools'
           $service_hasstatus = false
           case $majdistrelease {
@@ -113,7 +113,7 @@ class openvmtools::params {
         }
         'Ubuntu': {
           $package_name = 'open-vm-tools'
-          $desktop_package_name = 'open-vm-tools-desktop'
+          $desktop_package_name = 'open-vm-toolbox'
           $service_name = 'open-vm-tools'
           $service_hasstatus = false
           case $::operatingsystemrelease {
