@@ -99,9 +99,9 @@ class openvmtools::params {
       case $::operatingsystem {
         'Debian': {
           $package_name = 'open-vm-tools'
-          $desktop_package_name = 'open-vm-tools-desktop'
-          $service_name = 'vmtoolsd'
-          $service_hasstatus = true
+          $desktop_package_name = 'open-vm-toolbox'
+          $service_name = 'open-vm-tools'
+          $service_hasstatus = false
           case $majdistrelease {
             '5','6': {
               $supported = false
@@ -113,9 +113,9 @@ class openvmtools::params {
         }
         'Ubuntu': {
           $package_name = 'open-vm-tools'
-          $desktop_package_name = 'open-vm-tools-desktop'
-          $service_name = 'vmtoolsd'
-          $service_hasstatus = true
+          $desktop_package_name = 'open-vm-toolbox'
+          $service_name = 'open-vm-tools'
+          $service_hasstatus = false
           case $::operatingsystemrelease {
             '10.04','10.10','11.04','11.10': {
               $supported = false
