@@ -2,7 +2,7 @@
   "name": "razorsedge-openvmtools",
   "version": "0.1.0",
   "author": "razorsedge",
-  "summary": "Install Open Virtual Machine Tools packages.",
+  "summary": "Install Open Virtual Machine Tools packages on VMware guests.",
   "license": "Apache-2.0",
   "source": "https://github.com/razorsedge/puppet-openvmtools.git",
   "project_page": "https://github.com/razorsedge/puppet-openvmtools",
