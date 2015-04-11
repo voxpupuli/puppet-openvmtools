@@ -48,6 +48,13 @@
 #   doing.
 #   Default: auto-set, platform specific
 #
+# [*service_pattern*]
+#   Pattern to look for in the process table to determine if the daemon is
+#   running.
+#   Only set this if your platform is not supported or you know what you are
+#   doing.
+#   Default: vmtoolsd
+#
 # === Sample Usage:
 #
 #   class { 'openvmtools': }
@@ -70,11 +77,13 @@ class openvmtools (
   $service_name          = $openvmtools::params::service_name,
   $service_enable        = true,
   $service_hasstatus     = $openvmtools::params::service_hasstatus,
+  $service_pattern       = 'vmtoolsd',
 ) inherits openvmtools::params {
 
   $supported = $openvmtools::params::supported
 
   # Validate our booleans
+  validate_bool($with_desktop)
   validate_bool($autoupgrade)
   validate_bool($service_enable)
   validate_bool($supported)
@@ -118,6 +127,7 @@ class openvmtools (
           ensure    => $service_ensure_real,
           enable    => $service_enable,
           hasstatus => $service_hasstatus,
+          pattern   => $service_pattern,
           require   => Package[$package_name],
         }
       } else {

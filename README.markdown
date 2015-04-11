@@ -119,6 +119,11 @@ Default: true
 Service has status command.  Only set this if your platform is not supported or you know what you are doing.
 Default: auto-set, platform specific
 
+####`service_pattern`
+
+Pattern to look for in the process table to determine if the daemon is running.  Only set this if your platform is not supported or you know what you are doing.
+Default: vmtoolsd
+
 ##Limitations
 
 ###OS Support:
