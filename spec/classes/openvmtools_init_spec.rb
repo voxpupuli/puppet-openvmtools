@@ -44,7 +44,7 @@ describe 'openvmtools', :type => 'class' do
     it { should_not contain_service('vmtoolsd') }
   end
 
-  context 'on a supported osfamily, vmware platform, default parameters' do
+  context 'on a supported osfamily, vmware platform, default parameters, RedHat' do
     let(:params) {{}}
     let :facts do {
       :virtual                   => 'vmware',
@@ -56,7 +56,34 @@ describe 'openvmtools', :type => 'class' do
     end
     it { should contain_package('open-vm-tools') }
     it { should_not contain_package('open-vm-tools-desktop') }
-    it { should contain_service('vmtoolsd') }
+    it { should contain_service('vmtoolsd').with(
+      :ensure    => 'running',
+      :enable    => true,
+      :hasstatus => true,
+      :pattern   => 'vmtoolsd',
+      :require   => 'Package[open-vm-tools]'
+    )}
+  end
+
+  context 'on a supported osfamily, vmware platform, default parameters, Debian' do
+    let(:params) {{}}
+    let :facts do {
+      :virtual                   => 'vmware',
+      :osfamily                  => 'Debian',
+      :operatingsystem           => 'Ubuntu',
+      :operatingsystemrelease    => '14.04',
+      :operatingsystemmajrelease => '14.04'
+    }
+    end
+    it { should contain_package('open-vm-tools') }
+    it { should_not contain_package('open-vm-tools-desktop') }
+    it { should contain_service('open-vm-tools').with(
+      :ensure    => 'running',
+      :enable    => true,
+      :hasstatus => false,
+      :pattern   => 'vmtoolsd',
+      :require   => 'Package[open-vm-tools]'
+    )}
   end
 
   context 'on a supported operatingsystem, vmware platform, custom parameters' do
