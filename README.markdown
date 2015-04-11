@@ -6,7 +6,7 @@
 
 1. [Overview](#overview)
 2. [Module Description - What the module does and why it is useful](#module-description)
-3. [Setup - The basics of getting started with [Modulename]](#setup)
+3. [Setup - The basics of getting started with this module](#setup)
     * [What this module affects](#what-this-module-affects)
     * [What this module requires](#requirements)
     * [Beginning with this module](#beginning-with-this-module)
@@ -72,7 +72,7 @@ There is only one class and most usage will simply include the `openvmtools` cla
 
 ###Parameters
 
-The following parameters are available in the cloudera module:
+The following parameters are available in the openvmtools module:
 
 ####`with_desktop`
 
