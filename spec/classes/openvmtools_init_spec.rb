@@ -6,8 +6,8 @@ describe 'openvmtools', :type => 'class' do
     let(:params) {{}}
     let :facts do {
       :osfamily               => 'foo',
-      :operatingsystem        => 'foo'
-      :operatingsystemrelease => '1',
+      :operatingsystem        => 'foo',
+      :operatingsystemrelease => '1'
     }
     end
     it { should_not contain_package('open-vm-tools') }
