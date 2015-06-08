@@ -62,6 +62,7 @@
 # === Authors:
 #
 # Mike Arnold <mike@razorsedge.org>
+# Vladimir Stackov <amigo.elite@gmail.com>
 #
 # === Copyright:
 #
@@ -114,6 +115,26 @@ class openvmtools (
   case $::virtual {
     'vmware': {
       if $supported {
+        package { 'VMwareTools':
+          ensure => 'absent',
+          before => Package[$package_name],
+        }
+
+        exec { 'vmware-uninstall-tools':
+          command => '/usr/bin/vmware-uninstall-tools.pl && rm -rf /usr/lib/vmware-tools',
+          path    => '/bin:/sbin:/usr/bin:/usr/sbin',
+          onlyif  => 'test -f /usr/bin/vmware-uninstall-tools.pl',
+          before  => Package[$package_name],
+        }
+
+        # TODO: remove Exec["vmware-uninstall-tools-local"]?
+        exec { 'vmware-uninstall-tools-local':
+          command => '/usr/local/bin/vmware-uninstall-tools.pl && rm -rf /usr/local/lib/vmware-tools',
+          path    => '/bin:/sbin:/usr/bin:/usr/sbin',
+          onlyif  => 'test -f /usr/local/bin/vmware-uninstall-tools.pl',
+          before  => Package[$package_name],
+        }
+
         package { $package_name :
           ensure => $package_ensure,
         }
