@@ -117,7 +117,7 @@ describe 'openvmtools', :type => 'class' do
       :ensure    => 'running',
       :enable    => true,
       :hasstatus => true,
-      :pattern   => 'vmware_guestd',
+      :pattern   => 'vmtoolsd',
       :require   => 'Package[open-vm-tools-nox11]'
     )}
   end
