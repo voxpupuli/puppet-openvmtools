@@ -9,7 +9,6 @@ branches:
   only:
     - master
     - develop
-    - freebsdsupport
 bundler_args: --without system_tests
 script: "bundle exec rake validate && bundle exec rake lint && bundle exec rake spec SPEC_OPTS='--format documentation'"
 matrix:
@@ -40,4 +39,4 @@ matrix:
     env: PUPPET_GEM_VERSION="4.0.0.rc1"
 notifications:
   email:
-    - github@meganuke.ru
+    - github@razorsedge.org
