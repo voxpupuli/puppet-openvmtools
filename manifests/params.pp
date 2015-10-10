@@ -130,6 +130,20 @@ class openvmtools::params {
         }
       }
     }
+   'FreeBSD': {
+      $package_name = 'open-vm-tools-nox11'
+      $desktop_package_name = 'open-vm-tools'
+      $service_name = 'vmware_guestd'
+      $service_hasstatus = true
+      case $::operatingsystemrelease {
+        '10.0','10.1','10.2': {
+          $supported = true
+        }
+        default: {
+          $supported = false
+        }
+      }
+    }
     default: {
       $supported = false
     }

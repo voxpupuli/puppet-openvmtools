@@ -122,7 +122,7 @@ Default: auto-set, platform specific
 ####`service_pattern`
 
 Pattern to look for in the process table to determine if the daemon is running.  Only set this if your platform is not supported or you know what you are doing.
-Default: vmtoolsd
+Default: vmtoolsd for Linux Disributives and vmware_guestd for FreeBSD
 
 ##Limitations
 
@@ -138,6 +138,7 @@ open-vm-tools is available with these operating systems:
 * Red Hat Enterprise Linux 7.0 and later releases
 * CentOS 7 
 * Oracle Linux 7
+* FreeBSD 10.0 10.1 10.2
 
 ###Notes:
 
