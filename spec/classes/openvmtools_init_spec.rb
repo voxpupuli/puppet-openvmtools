@@ -31,11 +31,12 @@ describe 'openvmtools', :type => 'class' do
 
   context 'on a supported osfamily, non-vmware platform, FreeBSD' do
     let(:params) {{}}
+    let :facts do {
       :virtual                   => 'foo',
       :osfamily                  => 'FreeBSD',
       :operatingsystem           => 'FreeBSD',
       :operatingsystemrelease    => '10.0',
-      :operatingsystemmajrelease => '10',
+      :operatingsystemmajrelease => '10'
     }
     end
     it { should_not contain_package('open-vm-tools-nox11') }
