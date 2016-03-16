@@ -36,8 +36,8 @@ describe 'openvmtools', :type => 'class' do
       :virtual                   => 'vmware',
       :osfamily                  => 'RedHat',
       :operatingsystem           => 'RedHat',
-      :operatingsystemrelease    => '6.0',
-      :operatingsystemmajrelease => '6'
+      :operatingsystemrelease    => '5.0',
+      :operatingsystemmajrelease => '5'
     }
     end
     it { should_not contain_package('open-vm-tools') }
