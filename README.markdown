@@ -1,8 +1,8 @@
-#Open Virtual Machine Tools
+# Open Virtual Machine Tools
 
 [![Build Status](https://secure.travis-ci.org/razorsedge/puppet-openvmtools.png?branch=master)](http://travis-ci.org/razorsedge/puppet-openvmtools)
 
-####Table of Contents
+#### Table of Contents
 
 1. [Overview](#overview)
 2. [Module Description - What the module does and why it is useful](#module-description)
@@ -18,11 +18,11 @@
     * [Issues](#issues)
 6. [Development - Guide for contributing to the module](#development)
 
-##Overview
+## Overview
 
 This Puppet module manages the installation and configuration of the [Open Virtual Machine Tools](http://open-vm-tools.sourceforge.net/) for VMware.  VMware [recommends using open-vm-tools](http://kb.vmware.com/kb/2073803) redistributed by operating system vendors.
 
-##Module Description
+## Module Description
 
 open-vm-tools is the open source implementation of VMware Tools and consists of a suite of virtualization utilities that improves the functionality, administration, and management of virtual machines within a VMware environment. The primary purpose for open-vm-tools is to enable operating system vendors and/or communities and virtual appliance vendors to bundle VMware Tools into their product releases.
 
@@ -34,19 +34,19 @@ The benefits of bundling open-vm-tools are:
 * No compatibility matrix check is required for open-vm-tools. Adhering to the VMware Compatibility Matrix for the guest OS release is sufficient.
 * open-vm-tools bundled with the operating system provides a compact footprint optimized for each OS release.
 
-##Setup
+## Setup
 
-###What this module affects
+### What this module affects
 
 * Installs the main package open-vm-tools.
 * Optionally installs the desktop package open-vm-tools-desktop.
 * Starts the vmtoolsd daemon.
 
-###Requirements
+### Requirements
 
 You need to be running a virtual machine on the VMware platform and on an operating system that ships the Open Virtual Machine Tools for this module to do anything.
 
-###Beginning with this module
+### Beginning with this module
 
 It is safe for all nodes to use this declaration.  Any non-VMware or unsupported system will skip installtion of the tools.
 ```puppet
@@ -60,73 +60,73 @@ class { '::openvmtools':
 }
 ```
 
-##Usage
+## Usage
 
 There is only one class and most usage will simply include the `openvmtools` class.
 
-##Reference
+## Reference
 
-###Classes
+### Classes
 
 * openvmtools: Installs the Open Virtual Machine Tools.
 
-###Parameters
+### Parameters
 
 The following parameters are available in the openvmtools module:
 
-####`with_desktop`
+#### `with_desktop`
 
 Whether or not to install the desktop/GUI support.
 Default: false
 
-####`ensure`
+#### `ensure`
 
 Ensure if present or absent.
 Default: present
 
-####`autoupgrade`
+#### `autoupgrade`
 
 Upgrade package automatically, if there is a newer version.
 Default: false
 
-####`package_name`
+#### `package_name`
 
 Name of the package.  Only set this if your platform is not supported or you know what you are doing.
 Default: auto-set, platform specific
 
-####`desktop_package_name`
+#### `desktop_package_name`
 
 Name of the desktop package.  Only set this if your platform is not supported or you know what you are doing.
 Default: auto-set, platform specific
 
-####`service_ensure`
+#### `service_ensure`
 
 Ensure if service is running or stopped.
 Default: running
 
-####`service_name`
+#### `service_name`
 
 Name of openvmtools service.  Only set this if your platform is not supported or you know what you are doing.
 Default: auto-set, platform specific
 
-####`service_enable`
+#### `service_enable`
 
 Start service at boot.
 Default: true
 
-####`service_hasstatus`
+#### `service_hasstatus`
 
 Service has status command.  Only set this if your platform is not supported or you know what you are doing.
 Default: auto-set, platform specific
 
-####`service_pattern`
+#### `service_pattern`
 
 Pattern to look for in the process table to determine if the daemon is running.  Only set this if your platform is not supported or you know what you are doing.
 Default: vmtoolsd
 
-##Limitations
+## Limitations
 
-###OS Support:
+### OS Support:
 
 open-vm-tools is available with these operating systems:
 
@@ -139,17 +139,17 @@ open-vm-tools is available with these operating systems:
 * CentOS 7 
 * Oracle Linux 7
 
-###Notes:
+### Notes:
 
 * No other VM tools (ie [Operating System Specific Packages](http://packages.vmware.com/)) will be supported.  Use [razorsedge/vmwaretools](https://forge.puppetlabs.com/razorsedge/vmwaretools) instead.
 
-###Issues:
+### Issues:
 
 * None
 
-##Development
+## Development
 
-Please see [DEVELOP.md](DEVELOP.md) for information on how to contribute.
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for information on how to contribute.
 
 Copyright (C) 2015 Mike Arnold <mike@razorsedge.org>
 
