@@ -149,7 +149,7 @@ open-vm-tools is available with these operating systems:
 
 ## Development
 
-Please see [DEVELOP.md](DEVELOP.md) for information on how to contribute.
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for information on how to contribute.
 
 Copyright (C) 2015 Mike Arnold <mike@razorsedge.org>
 
