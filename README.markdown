@@ -68,58 +68,62 @@ There is only one class and most usage will simply include the `openvmtools` cla
 
 ### Classes
 
-* openvmtools: Installs the Open Virtual Machine Tools.
+#### Public Classes
 
-### Parameters
+* [`openvmtools`](#class-openvmtools): Installs the Open Virtual Machine Tools.
 
-The following parameters are available in the openvmtools module:
+### Class: `openvmtools`
 
-#### `with_desktop`
+#### Parameters
+
+The following parameters are available in the `::openvmtools` class:
+
+##### `with_desktop`
 
 Whether or not to install the desktop/GUI support.
 Default: false
 
-#### `ensure`
+##### `ensure`
 
 Ensure if present or absent.
 Default: present
 
-#### `autoupgrade`
+##### `autoupgrade`
 
 Upgrade package automatically, if there is a newer version.
 Default: false
 
-#### `package_name`
+##### `package_name`
 
 Name of the package.  Only set this if your platform is not supported or you know what you are doing.
 Default: auto-set, platform specific
 
-#### `desktop_package_name`
+##### `desktop_package_name`
 
 Name of the desktop package.  Only set this if your platform is not supported or you know what you are doing.
 Default: auto-set, platform specific
 
-#### `service_ensure`
+##### `service_ensure`
 
 Ensure if service is running or stopped.
 Default: running
 
-#### `service_name`
+##### `service_name`
 
 Name of openvmtools service.  Only set this if your platform is not supported or you know what you are doing.
 Default: auto-set, platform specific
 
-#### `service_enable`
+##### `service_enable`
 
 Start service at boot.
 Default: true
 
-#### `service_hasstatus`
+##### `service_hasstatus`
 
 Service has status command.  Only set this if your platform is not supported or you know what you are doing.
 Default: auto-set, platform specific
 
-#### `service_pattern`
+##### `service_pattern`
 
 Pattern to look for in the process table to determine if the daemon is running.  Only set this if your platform is not supported or you know what you are doing.
 Default: vmtoolsd
