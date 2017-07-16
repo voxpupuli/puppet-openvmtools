@@ -132,6 +132,10 @@ class openvmtools::params {
     }
     default: {
       $supported = false
+      $package_name = nil
+      $desktop_package_name = nil
+      $service_name = nil
+      $service_hasstatus = false
     }
   }
 }

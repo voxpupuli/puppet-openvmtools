@@ -1,6 +1,6 @@
 {
   "name": "razorsedge-openvmtools",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "razorsedge",
   "summary": "Install Open Virtual Machine Tools packages on VMware guests.",
   "license": "Apache-2.0",
@@ -50,12 +50,8 @@
   ],
   "requirements": [
     {
-      "name": "pe",
-      "version_requirement": "3.x"
-    },
-    {
       "name": "puppet",
-      "version_requirement": ">=2.7.20 <4.0.0"
+      "version_requirement": ">=2.7.20 <5.0.0"
     }
   ]
 }

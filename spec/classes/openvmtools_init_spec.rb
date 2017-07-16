@@ -2,11 +2,14 @@ require 'spec_helper'
 
 describe 'openvmtools', :type => 'class' do
 
-  context 'on a non-supported osfamily' do
+  context 'on a non-supported osfamily, non-vmware platform' do
     let(:params) {{}}
     let :facts do {
-      :osfamily        => 'foo',
-      :operatingsystem => 'foo'
+      :virtual                   => 'foo',
+      :osfamily                  => 'foo',
+      :operatingsystem           => 'foo',
+      :operatingsystemrelease    => '1',
+      :operatingsystemmajrelease => '1'
     }
     end
     it { should_not contain_package('open-vm-tools') }
