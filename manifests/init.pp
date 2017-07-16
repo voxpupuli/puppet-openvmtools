@@ -86,6 +86,7 @@ class openvmtools (
   validate_bool($with_desktop)
   validate_bool($autoupgrade)
   validate_bool($service_enable)
+  validate_bool($service_hasstatus)
   validate_bool($supported)
 
   case $ensure {
