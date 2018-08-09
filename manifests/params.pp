@@ -30,6 +30,7 @@ class openvmtools::params {
         'RedHat', 'CentOS', 'OEL', 'OracleLinux', 'Scientific': {
           $package_name = 'open-vm-tools'
           $desktop_package_name = 'open-vm-tools-desktop'
+          $desktop_package_conflicts = false
           $service_name = 'vmtoolsd'
           $service_hasstatus = true
           case $majdistrelease {
@@ -44,6 +45,7 @@ class openvmtools::params {
         'Fedora': {
           $package_name = 'open-vm-tools'
           $desktop_package_name = 'open-vm-tools-desktop'
+          $desktop_package_conflicts = false
           $service_name = 'vmtoolsd'
           $service_hasstatus = true
           case $majdistrelease {
@@ -65,6 +67,7 @@ class openvmtools::params {
         'SLES', 'SLED': {
           $package_name = 'open-vm-tools'
           $desktop_package_name = 'open-vm-tools-desktop'
+          $desktop_package_conflicts = false
           $service_name = 'vmtoolsd'
           $service_hasstatus = true
           case $majdistrelease {
@@ -79,6 +82,7 @@ class openvmtools::params {
         'OpenSUSE': {
           $package_name = 'open-vm-tools'
           $desktop_package_name = 'open-vm-tools-desktop'
+          $desktop_package_conflicts = false
           $service_name = 'vmtoolsd'
           $service_hasstatus = true
           case $majdistrelease {
@@ -100,6 +104,7 @@ class openvmtools::params {
         'Debian': {
           $package_name = 'open-vm-tools'
           $desktop_package_name = 'open-vm-toolbox'
+          $desktop_package_conflicts = false
           $service_name = 'open-vm-tools'
           $service_hasstatus = false
           case $majdistrelease {
@@ -114,6 +119,7 @@ class openvmtools::params {
         'Ubuntu': {
           $package_name = 'open-vm-tools'
           $desktop_package_name = 'open-vm-toolbox'
+          $desktop_package_conflicts = false
           $service_name = 'open-vm-tools'
           $service_hasstatus = false
           case $::operatingsystemrelease {
@@ -130,10 +136,33 @@ class openvmtools::params {
         }
       }
     }
+    'FreeBSD': {
+      case $::operatingsystem {
+        'FreeBSD': {
+          $package_name = 'open-vm-tools-nox11'
+          $desktop_package_name = 'open-vm-tools'
+          $desktop_package_conflicts = true
+          $service_name = 'vmware_guestd'
+          $service_hasstatus = true
+          case $majdistrelease {
+            '1','2','3''4','5','6','7','8','9': {
+              $supported = false
+            }
+            default: {
+              $supported = true
+            }
+          }
+        }
+        default: {
+          $supported = false
+        }
+      }
+    }
     default: {
       $supported = false
       $package_name = nil
       $desktop_package_name = nil
+      $desktop_package_conflicts = false
       $service_name = nil
       $service_hasstatus = false
     }

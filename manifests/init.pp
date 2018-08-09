@@ -115,8 +115,10 @@ class openvmtools (
   case $::virtual {
     'vmware': {
       if $supported {
-        package { $package_name :
-          ensure => $package_ensure,
+        unless $desktop_package_conflicts and $with_desktop {
+          package { $package_name :
+            ensure => $package_ensure,
+          }
         }
         if $with_desktop {
           package { $desktop_package_name :
