@@ -91,22 +91,22 @@ class openvmtools (
   validate_bool($supported)
   validate_bool($desktop_package_conflicts)
 
+  if $desktop_package_conflicts {
+    if $with_desktop {
+      $service_package_name = $desktop_package_name
+    } else {
+      $service_package_name = $package_name
+    }
+  } else {
+    $service_package_name = $package_name
+  }
+
   case $ensure {
     /(present)/: {
       if $autoupgrade == true {
         $package_ensure = 'latest'
       } else {
         $package_ensure = 'present'
-      }
-
-      if $desktop_package_conflicts {
-        if $with_desktop {
-          $service_package_name = $desktop_package_name
-        } else {
-          $service_package_name = $package_name
-        }
-      } else {
-        $service_package_name = $package_name
       }
 
       if $service_ensure in [ running, stopped ] {
