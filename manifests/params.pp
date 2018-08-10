@@ -145,7 +145,7 @@ class openvmtools::params {
           $service_name = 'vmware_guestd'
           $service_hasstatus = true
           case $majdistrelease {
-            '1','2','3''4','5','6','7','8','9': {
+            '1','2','3','4','5','6','7','8','9': {
               $supported = false
             }
             default: {

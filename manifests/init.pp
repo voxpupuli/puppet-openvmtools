@@ -81,6 +81,7 @@ class openvmtools (
 ) inherits openvmtools::params {
 
   $supported = $openvmtools::params::supported
+  $desktop_package_conflicts = $openvmtools::params::desktop_package_conflicts
 
   # Validate our booleans
   validate_bool($with_desktop)
@@ -88,6 +89,7 @@ class openvmtools (
   validate_bool($service_enable)
   validate_bool($service_hasstatus)
   validate_bool($supported)
+  validate_bool($desktop_package_conflicts)
 
   case $ensure {
     /(present)/: {
@@ -95,6 +97,16 @@ class openvmtools (
         $package_ensure = 'latest'
       } else {
         $package_ensure = 'present'
+      }
+
+      if $desktop_package_conflicts {
+        if $with_desktop {
+          $service_package_name = $desktop_package_name
+        } else {
+          $service_package_name = $package_name
+        }
+      } else {
+        $service_package_name = $package_name
       }
 
       if $service_ensure in [ running, stopped ] {
@@ -131,7 +143,7 @@ class openvmtools (
           enable    => $service_enable,
           hasstatus => $service_hasstatus,
           pattern   => $service_pattern,
-          require   => Package[$package_name],
+          require   => Package[$service_package_name],
         }
       } else {
         notice "Your operating system ${::operatingsystem} is unsupported and will not have the Open Virtual Machine Tools installed."

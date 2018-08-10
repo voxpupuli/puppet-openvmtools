@@ -142,6 +142,7 @@ open-vm-tools is available with these operating systems:
 * Red Hat Enterprise Linux 7.0 and later releases
 * CentOS 7 
 * Oracle Linux 7
+* FreeBSD 10 and later releases
 
 ### Notes:
 
