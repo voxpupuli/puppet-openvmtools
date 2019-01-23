@@ -115,6 +115,10 @@ class openvmtools (
   case $::virtual {
     'vmware': {
       if $supported {
+        if $::osfamily == 'RedHat' and $openvmtools::params::majdistrelease == '6' {
+          include ::epel
+          Yumrepo['epel'] -> Package[$package_name]
+        }
         package { $package_name :
           ensure => $package_ensure,
         }

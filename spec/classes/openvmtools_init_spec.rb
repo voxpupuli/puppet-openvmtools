@@ -32,7 +32,7 @@ describe 'openvmtools', :type => 'class' do
     it { should_not contain_service('vmtoolsd') }
   end
 
-  context 'on a supported osfamily, vmware platform, non-supported operatingsystem' do
+  context 'on a supported osfamily, vmware platform, default parameters, RedHat 6' do
     let(:params) {{}}
     let :facts do {
       :virtual                   => 'vmware',
@@ -42,9 +42,17 @@ describe 'openvmtools', :type => 'class' do
       :operatingsystemmajrelease => '6'
     }
     end
-    it { should_not contain_package('open-vm-tools') }
+    it { should contain_class('epel') }
+    it { should contain_yumrepo('epel').that_comes_before('Package[open-vm-tools]') }
+    it { should contain_package('open-vm-tools') }
     it { should_not contain_package('open-vm-tools-desktop') }
-    it { should_not contain_service('vmtoolsd') }
+    it { should contain_service('vmtoolsd').with(
+      :ensure    => 'running',
+      :enable    => true,
+      :hasstatus => true,
+      :pattern   => 'vmtoolsd',
+      :require   => 'Package[open-vm-tools]'
+    )}
   end
 
   context 'on a supported osfamily, vmware platform, default parameters, RedHat' do
