@@ -55,6 +55,10 @@
 #   doing.
 #   Default: vmtoolsd
 #
+# [*manage_epel*]
+#   Boolean that determines if epel should be managed when needed to install packages.
+#   Only used for EL6.
+#
 # === Sample Usage:
 #
 #   class { 'openvmtools': }
@@ -78,6 +82,7 @@ class openvmtools (
   $service_enable        = true,
   $service_hasstatus     = $openvmtools::params::service_hasstatus,
   $service_pattern       = 'vmtoolsd',
+  $manage_epel           = true,
 ) inherits openvmtools::params {
 
   $supported = $openvmtools::params::supported
@@ -115,7 +120,7 @@ class openvmtools (
   case $::virtual {
     'vmware': {
       if $supported {
-        if $::osfamily == 'RedHat' and $openvmtools::params::majdistrelease == '6' {
+        if $::osfamily == 'RedHat' and $openvmtools::params::majdistrelease == '6' and $manage_epel {
           include ::epel
           Yumrepo['epel'] -> Package[$package_name]
         }
