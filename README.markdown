@@ -1,7 +1,7 @@
 # Open Virtual Machine Tools
 
-[![Build Status](https://secure.travis-ci.org/razorsedge/puppet-openvmtools.png?branch=master)
-](http://travis-ci.org/razorsedge/puppet-openvmtools)
+[![Build Status](https://secure.travis-ci.org/voxpupuli/puppet-openvmtools.png?branch=master)
+](http://travis-ci.org/voxpupuli/puppet-openvmtools)
 
 ## Table of Contents
 
@@ -176,7 +176,7 @@ open-vm-tools is available with these operating systems:
 * No other VM tools
   (ie [Operating System Specific Packages](http://packages.vmware.com/)) will be
   supported.  Use
-  [razorsedge/vmwaretools](https://forge.puppetlabs.com/razorsedge/vmwaretools)
+  [voxpupuli/vmwaretools](https://forge.puppetlabs.com/voxpupuli/vmwaretools)
   instead.
 
 ### Issues
@@ -187,10 +187,10 @@ open-vm-tools is available with these operating systems:
 
 Please see [CONTRIBUTING.md](CONTRIBUTING.md) for information on how to contribute.
 
-Copyright (C) 2015 Mike Arnold <mike@razorsedge.org>
+Copyright (C) 2017 Vox Pupuli <voxpupuli@groups.io>
 
 Licensed under the Apache License, Version 2.0.
 
-[razorsedge/puppet-openvmtools on GitHub](https://github.com/razorsedge/puppet-openvmtools)
+[voxpupuli/puppet-openvmtools on GitHub](https://github.com/voxpupuli/puppet-openvmtools)
 
-[razorsedge/openvmtools on Puppet Forge](https://forge.puppetlabs.com/razorsedge/openvmtools)
+[voxpupuli/openvmtools on Puppet Forge](https://forge.puppetlabs.com/voxpupuli/openvmtools)

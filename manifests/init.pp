@@ -62,10 +62,11 @@
 # === Authors:
 #
 # Mike Arnold <mike@razorsedge.org>
+# Vox Pupuli <voxpupuli@groups.io>
 #
 # === Copyright:
 #
-# Copyright (C) 2015 Mike Arnold, unless otherwise noted.
+# Copyright (C) 2017 Vox Pupuli
 #
 class openvmtools (
   $with_desktop          = false,
