@@ -1,0 +1,12 @@
+---
+
+Layout/AlignHash:
+  EnforcedColonStyle: table
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/classes/*_spec.rb'
+
+Metrics/LineLength:
+  Exclude:
+    - 'Gemfile'
