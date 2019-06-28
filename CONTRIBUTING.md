@@ -46,13 +46,9 @@ by [Travis CI](http://about.travis-ci.org/) and the current status is visible
 To install the test system, pick one of the following:
 
 ```sh
-PUPPET_GEM_VERSION="~> 2.7.0" \
-FACTER_GEM_VERSION="~> 1.7.0" \
-bundle install --path=.vendor --without system_tests
-PUPPET_GEM_VERSION="~> 3.0" \
-bundle install --path=.vendor --without system_tests
-PUPPET_GEM_VERSION="~> 4.0" \
-bundle install --path=.vendor --without system_tests
+PUPPET_GEM_VERSION="~> 4.0" bundle install --path=.vendor --without system_tests
+PUPPET_GEM_VERSION="~> 5.0" bundle install --path=.vendor --without system_tests
+PUPPET_GEM_VERSION="~> 6.0" bundle install --path=.vendor --without system_tests
 ```
 
 To run all tests:
@@ -61,8 +57,7 @@ To run all tests:
 bundle exec rake validate && \
 bundle exec rake lint && \
 bundle exec rake metadata_lint && \
-bundle exec rake spec SPEC_OPTS='--format documentation' \
-                      FUTURE_PARSER="yes" STRICT_VARIABLES="no"
+bundle exec rake spec SPEC_OPTS='--format documentation' STRICT_VARIABLES=no
 ```
 
 Branching

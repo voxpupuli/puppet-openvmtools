@@ -3,7 +3,7 @@
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
-      "version_requirement": ">=2.3.0 <5.0.0"
+      "version_requirement": ">=2.3.0 <7.0.0"
     }
   ],
   "issues_url": "https://github.com/voxpupuli/puppet-openvmtools/issues",
@@ -15,26 +15,35 @@
       "operatingsystemrelease": [
         "19",
         "20",
-        "21"
+        "21",
+        "22",
+        "23",
+        "24",
+        "25"
       ]
     },
     {
       "operatingsystem": "Debian",
       "operatingsystemrelease": [
-        "7"
+        "7",
+        "8",
+        "9"
       ]
     },
     {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
         "12.04",
-        "14.04"
+        "14.04",
+        "16.04",
+        "18.04"
       ]
     },
     {
       "operatingsystem": "OpenSUSE",
       "operatingsystemrelease": [
-        "11"
+        "11",
+        "12"
       ]
     },
     {
@@ -46,19 +55,22 @@
     {
       "operatingsystem": "RedHat",
       "operatingsystemrelease": [
-        "7"
+        "7",
+        "8"
       ]
     },
     {
       "operatingsystem": "CentOS",
       "operatingsystemrelease": [
-        "7"
+        "7",
+        "8"
       ]
     },
     {
       "operatingsystem": "OracleLinux",
       "operatingsystemrelease": [
-        "7"
+        "7",
+        "8"
       ]
     }
   ],
@@ -66,7 +78,7 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">=2.7.20 <5.0.0"
+      "version_requirement": ">=4.10.0 <7.0.0"
     }
   ],
   "source": "https://github.com/voxpupuli/puppet-openvmtools.git",
@@ -79,5 +91,5 @@
     "vmtools",
     "open-vm-tools"
   ],
-  "version": "1.1.0"
+  "version": "2.0.0"
 }

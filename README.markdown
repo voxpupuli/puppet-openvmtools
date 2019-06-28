@@ -163,13 +163,13 @@ Default: vmtoolsd
 open-vm-tools is available with these operating systems:
 
 * Debian 7.x and later releases
-* Recent Ubuntu releases (12.04 LTS, 13.10 and later)
+* Ubuntu 12.04 and later LTS releases
 * openSUSE 11.x and later releases
 * SUSE Linux Enterprise 12 and later releases
 * Fedora 19 and later releases
 * Red Hat Enterprise Linux 7.0 and later releases
-* CentOS 7
-* Oracle Linux 7
+* CentOS 7 and later releases
+* Oracle Linux 7 and later releases
 
 ### Notes
 
