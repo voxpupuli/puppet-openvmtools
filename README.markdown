@@ -148,7 +148,7 @@ Default: running
 
 ##### `service_hasstatus`
 
-Service has status command.  Only set this if your platform is not supported or
+Name of openvmtools service.  Only set this if your platform is not supported or
 you know what you are doing.
 Default: auto-set, platform specific
 
@@ -163,6 +163,12 @@ Default: auto-set, platform specific
 Pattern to look for in the process table to determine if the daemon is running.
 Only set this if your platform is not supported or you know what you are doing.
 Default: vmtoolsd
+
+##### `uninstall_vmware_tools`
+
+Boolean that determines whether the conflicting VMWare Tools package should
+be uninstalled, if present.
+Default: false
 
 ##### `with_desktop`
 

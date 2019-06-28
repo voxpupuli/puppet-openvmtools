@@ -251,6 +251,13 @@ describe 'openvmtools', type: 'class' do
         should contain_package('open-vm-tools-desktop').with_ensure('present')
       }
     end
+
+    describe 'uninstall_vmware_tools => true' do
+      let(:params) { { uninstall_vmware_tools: true } }
+      it {
+        should contain_package('VMwareTools').with_ensure('absent')
+      }
+    end
   end
   context 'on a supported FreeBSD 11 os, vmware platform, custom parameters' do
     let :facts do

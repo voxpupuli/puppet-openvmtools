@@ -62,6 +62,11 @@
 #   doing.
 #   Default: vmtoolsd
 #
+# [*uninstall_vmware_tools*]
+#   Boolean that determines whether the conflicting VMWare Tools package should
+#   be uninstalled, if present.
+#   Default: false
+#
 # [*with_desktop*]
 #   Whether or not to install the desktop/GUI support.
 #   Default: false
@@ -92,6 +97,7 @@ class openvmtools (
   String[1]                $service_name              = 'vmtoolsd',
   Optional[String[1]]      $service_pattern           = undef,
   Boolean                  $supported                 = false,
+  Boolean                  $uninstall_vmware_tools    = false,
   Boolean                  $with_desktop              = false,
 ) {
 
@@ -119,6 +125,23 @@ class openvmtools (
       if $manage_epel {
         include epel
         Yumrepo['epel'] -> Package[$packages]
+      }
+
+      if $uninstall_vmware_tools {
+        if $facts['vmware_uninstaller'] =~ Stdlib::Unixpath {
+          $vmware_lib = $facts['vmware_uninstaller'].regex_replace(
+            'bin/vmware-uninstall-tools.pl',
+            'lib/vmware-tools'
+          )
+          exec { 'vmware-uninstall-tools':
+            command => "${facts['vmware_uninstaller']} && rm -rf ${vmware_lib} ${facts['vmware_uninstaller']}",
+            before  => Package['VMwareTools'],
+          }
+        }
+        package { 'VMwareTools':
+          ensure => 'absent',
+          before => Package[$packages],
+        }
       }
 
       package { $packages:
