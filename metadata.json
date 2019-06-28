@@ -47,6 +47,14 @@
       ]
     },
     {
+      "operatingsystem": "FreeBSD",
+      "operatingsystemrelease": [
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
       "operatingsystem": "OpenSUSE",
       "operatingsystemrelease": [
         "11",

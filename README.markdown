@@ -111,6 +111,13 @@ Default: present
 Upgrade package automatically, if there is a newer version.
 Default: false
 
+##### `desktop_package_conflicts`
+
+Boolean that determines whether the desktop conflicts includes and
+conflicts with the base package. Only set this if your platform is not
+supported or you know what you are doing.
+Default: auto-set, platform specific
+
 ##### `desktop_package_name`
 
 Name of the desktop package.  Only set this if your platform is not supported or
@@ -171,6 +178,7 @@ open-vm-tools is available with these operating systems:
 * CentOS 6 and later releases
 * Debian 7.x and later releases
 * Fedora 19 and later releases
+* FreeBSD 10 and later releases
 * Oracle Linux 6 and later releases
 * Red Hat Enterprise Linux 6.0 and later releases
 * SUSE Linux Enterprise 12 and later releases

@@ -12,6 +12,12 @@
 #   Upgrade package automatically, if there is a newer version.
 #   Default: false
 #
+# [*desktop_package_conflicts*]
+#   Boolean that determines whether the desktop conflicts includes and
+#   conflicts with the base package. Only set this if your platform is not
+#   supported or you know what you are doing.
+#   Default: auto-set, platform specific
+#
 # [*desktop_package_name*]
 #   Name of the desktop package.
 #   Only set this if your platform is not supported or you know what you are
@@ -74,18 +80,19 @@
 # Copyright (C) 2017 Vox Pupuli
 #
 class openvmtools (
-  Enum['absent','present'] $ensure               = 'present',
-  Boolean                  $autoupgrade          = false,
-  String[1]                $desktop_package_name = 'open-vm-tools-desktop',
-  Boolean                  $manage_epel          = false,
-  String[1]                $package_name         = 'open-vm-tools',
-  Boolean                  $service_enable       = true,
-  Stdlib::Ensure::Service  $service_ensure       = 'running',
-  Boolean                  $service_hasstatus    = true,
-  String[1]                $service_name         = 'vmtoolsd',
-  Optional[String[1]]      $service_pattern      = undef,
-  Boolean                  $supported            = false,
-  Boolean                  $with_desktop         = false,
+  Enum['absent','present'] $ensure                    = 'present',
+  Boolean                  $autoupgrade               = false,
+  Boolean                  $desktop_package_conflicts = false,
+  String[1]                $desktop_package_name      = 'open-vm-tools-desktop',
+  Boolean                  $manage_epel               = false,
+  String[1]                $package_name              = 'open-vm-tools',
+  Boolean                  $service_enable            = true,
+  Stdlib::Ensure::Service  $service_ensure            = 'running',
+  Boolean                  $service_hasstatus         = true,
+  String[1]                $service_name              = 'vmtoolsd',
+  Optional[String[1]]      $service_pattern           = undef,
+  Boolean                  $supported                 = false,
+  Boolean                  $with_desktop              = false,
 ) {
 
   if $facts['virtual'] == 'vmware' {
@@ -102,7 +109,10 @@ class openvmtools (
       }
 
       $packages = $with_desktop ? {
-        true    => [ $package_name, $desktop_package_name ],
+        true    => $desktop_package_conflicts ? {
+          true    => [ $desktop_package_name ],
+          default => [ $package_name, $desktop_package_name ],
+        },
         default => [ $package_name ],
       }
 
