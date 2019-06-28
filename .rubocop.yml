@@ -1,5 +1,8 @@
 ---
 
+Bundler/DuplicatedGem:
+  Enabled: false
+
 Layout/AlignHash:
   EnforcedColonStyle: table
 
