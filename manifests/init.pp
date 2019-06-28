@@ -4,10 +4,6 @@
 #
 # === Parameters:
 #
-# [*with_desktop*]
-#   Whether or not to install the desktop/GUI support.
-#   Default: false
-#
 # [*ensure*]
 #   Ensure if present or absent.
 #   Default: present
@@ -16,24 +12,14 @@
 #   Upgrade package automatically, if there is a newer version.
 #   Default: false
 #
-# [*package_name*]
-#   Name of the package.
-#   Only set this if your platform is not supported or you know what you are
-#   doing.
-#   Default: auto-set, platform specific
-#
 # [*desktop_package_name*]
 #   Name of the desktop package.
 #   Only set this if your platform is not supported or you know what you are
 #   doing.
 #   Default: auto-set, platform specific
 #
-# [*service_ensure*]
-#   Ensure if service is running or stopped.
-#   Default: running
-#
-# [*service_name*]
-#   Name of openvmtools service.
+# [*package_name*]
+#   Name of the package.
 #   Only set this if your platform is not supported or you know what you are
 #   doing.
 #   Default: auto-set, platform specific
@@ -42,8 +28,18 @@
 #   Start service at boot.
 #   Default: true
 #
+# [*service_ensure*]
+#   Ensure if service is running or stopped.
+#   Default: running
+#
 # [*service_hasstatus*]
 #   Service has status command.
+#   Only set this if your platform is not supported or you know what you are
+#   doing.
+#   Default: auto-set, platform specific
+#
+# [*service_name*]
+#   Name of openvmtools service.
 #   Only set this if your platform is not supported or you know what you are
 #   doing.
 #   Default: auto-set, platform specific
@@ -54,6 +50,10 @@
 #   Only set this if your platform is not supported or you know what you are
 #   doing.
 #   Default: vmtoolsd
+#
+# [*with_desktop*]
+#   Whether or not to install the desktop/GUI support.
+#   Default: false
 #
 # === Sample Usage:
 #
@@ -69,16 +69,16 @@
 # Copyright (C) 2017 Vox Pupuli
 #
 class openvmtools (
-  $with_desktop          = false,
   $ensure                = 'present',
   $autoupgrade           = false,
-  $package_name          = $openvmtools::params::package_name,
   $desktop_package_name  = $openvmtools::params::desktop_package_name,
-  $service_ensure        = 'running',
-  $service_name          = $openvmtools::params::service_name,
+  $package_name          = $openvmtools::params::package_name,
   $service_enable        = true,
+  $service_ensure        = 'running',
   $service_hasstatus     = $openvmtools::params::service_hasstatus,
+  $service_name          = $openvmtools::params::service_name,
   $service_pattern       = 'vmtoolsd',
+  $with_desktop          = false,
 ) inherits openvmtools::params {
 
   $supported = $openvmtools::params::supported

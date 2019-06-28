@@ -101,11 +101,6 @@ class.
 
 The following parameters are available in the `::openvmtools` class:
 
-##### `with_desktop`
-
-Whether or not to install the desktop/GUI support.
-Default: false
-
 ##### `ensure`
 
 Ensure if present or absent.
@@ -116,27 +111,16 @@ Default: present
 Upgrade package automatically, if there is a newer version.
 Default: false
 
-##### `package_name`
-
-Name of the package.  Only set this if your platform is not supported or you
-know what you are doing.
-Default: auto-set, platform specific
-
 ##### `desktop_package_name`
 
 Name of the desktop package.  Only set this if your platform is not supported or
 you know what you are doing.
 Default: auto-set, platform specific
 
-##### `service_ensure`
+##### `package_name`
 
-Ensure if service is running or stopped.
-Default: running
-
-##### `service_name`
-
-Name of openvmtools service.  Only set this if your platform is not supported or
-you know what you are doing.
+Name of the package.  Only set this if your platform is not supported or you
+know what you are doing.
 Default: auto-set, platform specific
 
 ##### `service_enable`
@@ -144,9 +128,20 @@ Default: auto-set, platform specific
 Start service at boot.
 Default: true
 
+##### `service_ensure`
+
+Ensure if service is running or stopped.
+Default: running
+
 ##### `service_hasstatus`
 
 Service has status command.  Only set this if your platform is not supported or
+you know what you are doing.
+Default: auto-set, platform specific
+
+##### `service_name`
+
+Name of openvmtools service.  Only set this if your platform is not supported or
 you know what you are doing.
 Default: auto-set, platform specific
 
@@ -155,6 +150,11 @@ Default: auto-set, platform specific
 Pattern to look for in the process table to determine if the daemon is running.
 Only set this if your platform is not supported or you know what you are doing.
 Default: vmtoolsd
+
+##### `with_desktop`
+
+Whether or not to install the desktop/GUI support.
+Default: false
 
 ## Limitations
 
