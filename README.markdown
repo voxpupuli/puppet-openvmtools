@@ -117,6 +117,12 @@ Name of the desktop package.  Only set this if your platform is not supported or
 you know what you are doing.
 Default: auto-set, platform specific
 
+##### `manage_epel`
+
+Boolean that determines if stahnma-epel is required for packages.
+This should only needed for RedHat (EL) 6.
+Default: auto-set, platform specific
+
 ##### `package_name`
 
 Name of the package.  Only set this if your platform is not supported or you
@@ -162,14 +168,14 @@ Default: false
 
 open-vm-tools is available with these operating systems:
 
+* CentOS 6 and later releases
 * Debian 7.x and later releases
+* Fedora 19 and later releases
+* Oracle Linux 6 and later releases
+* Red Hat Enterprise Linux 6.0 and later releases
+* SUSE Linux Enterprise 12 and later releases
 * Ubuntu 12.04 and later LTS releases
 * openSUSE 11.x and later releases
-* SUSE Linux Enterprise 12 and later releases
-* Fedora 19 and later releases
-* Red Hat Enterprise Linux 7.0 and later releases
-* CentOS 7 and later releases
-* Oracle Linux 7 and later releases
 
 ### Notes
 

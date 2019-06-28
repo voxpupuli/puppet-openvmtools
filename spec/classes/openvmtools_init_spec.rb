@@ -53,7 +53,7 @@ describe 'openvmtools', type: 'class' do
     it { should_not contain_service('vmtoolsd') }
   end
 
-  context 'on a non-supported RedHat os, vmware platform' do
+  context 'on a supported RedHat 6 os, vmware platform' do
     let(:params) { {} }
     let :facts do
       {
@@ -73,12 +73,23 @@ describe 'openvmtools', type: 'class' do
         virtual:                   'vmware'
       }
     end
-    it { should_not contain_package('open-vm-tools') }
+    it { should contain_class('epel') }
+    it {
+      should contain_yumrepo('epel').that_comes_before('Package[open-vm-tools]')
+    }
+    it { should contain_package('open-vm-tools') }
     it { should_not contain_package('open-vm-tools-desktop') }
-    it { should_not contain_service('vmtoolsd') }
+    it {
+      should contain_service('vmtoolsd').with(
+        ensure:    'running',
+        enable:    true,
+        hasstatus: true,
+        require:   '[Package[open-vm-tools]{:name=>"open-vm-tools"}]'
+      )
+    }
   end
 
-  context 'on a supported RedHat os, vmware platform, default parameters' do
+  context 'on a supported RedHat 7 os, vmware platform, default parameters' do
     let(:params) { {} }
     let :facts do
       {
@@ -110,7 +121,7 @@ describe 'openvmtools', type: 'class' do
     }
   end
 
-  context 'on a supported Debian os, vmware platform, default parameters' do
+  context 'on a supported Debian 14 os, vmware platform, default parameters' do
     let(:params) { {} }
     let :facts do
       {
@@ -142,7 +153,7 @@ describe 'openvmtools', type: 'class' do
     }
   end
 
-  context 'on a supported RedHat os, vmware platform, custom parameters' do
+  context 'on a supported RedHat 7 os, vmware platform, custom parameters' do
     let :facts do
       {
         operatingsystem:           'RedHat',

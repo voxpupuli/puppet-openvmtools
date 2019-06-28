@@ -18,6 +18,11 @@
 #   doing.
 #   Default: auto-set, platform specific
 #
+# [*manage_epel*]
+#   Boolean that determines if stahnma-epel is required for packages.
+#   This should only needed for RedHat (EL) 6.
+#   Default: auto-set, platform specific
+#
 # [*package_name*]
 #   Name of the package.
 #   Only set this if your platform is not supported or you know what you are
@@ -72,6 +77,7 @@ class openvmtools (
   Enum['absent','present'] $ensure               = 'present',
   Boolean                  $autoupgrade          = false,
   String[1]                $desktop_package_name = 'open-vm-tools-desktop',
+  Boolean                  $manage_epel          = false,
   String[1]                $package_name         = 'open-vm-tools',
   Boolean                  $service_enable       = true,
   Stdlib::Ensure::Service  $service_ensure       = 'running',
@@ -98,6 +104,11 @@ class openvmtools (
       $packages = $with_desktop ? {
         true    => [ $package_name, $desktop_package_name ],
         default => [ $package_name ],
+      }
+
+      if $manage_epel {
+        include epel
+        Yumrepo['epel'] -> Package[$packages]
       }
 
       package { $packages:

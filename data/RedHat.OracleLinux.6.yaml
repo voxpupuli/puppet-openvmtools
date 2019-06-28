@@ -1,0 +1,4 @@
+---
+
+openvmtools::manage_epel: true
+openvmtools::supported: true

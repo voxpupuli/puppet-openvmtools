@@ -1,15 +1,39 @@
 {
-  "author": "voxpupuli",
+  "author": "Vox Pupuli <voxpupuli@groups.io>",
   "dependencies": [
+    {
+      "name": "stahnma/epel",
+      "version_requirement": ">=1.2.2 <2.0.0"
+    },
     {
       "name": "puppetlabs/stdlib",
       "version_requirement": ">=2.3.0 <7.0.0"
+    },
+    {
+      "name": "puppetlabs/yumrepo_core",
+      "version_requirement": ">=1.0.0 <2.0.0"
     }
   ],
   "issues_url": "https://github.com/voxpupuli/puppet-openvmtools/issues",
   "license": "Apache-2.0",
-  "name": "voxpupuli-openvmtools",
+  "name": "puppet-openvmtools",
   "operatingsystem_support": [
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "6",
+        "7",
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "7",
+        "8",
+        "9"
+      ]
+    },
     {
       "operatingsystem": "Fedora",
       "operatingsystemrelease": [
@@ -23,11 +47,38 @@
       ]
     },
     {
-      "operatingsystem": "Debian",
+      "operatingsystem": "OpenSUSE",
       "operatingsystemrelease": [
+        "11",
+        "12",
+        "13",
+        "42",
+        "15"
+      ]
+    },
+    {
+      "operatingsystem": "OracleLinux",
+      "operatingsystemrelease": [
+        "6",
         "7",
-        "8",
-        "9"
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "6",
+        "7",
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "SLES",
+      "operatingsystemrelease": [
+        "12",
+        "13",
+        "14",
+        "15"
       ]
     },
     {
@@ -37,40 +88,6 @@
         "14.04",
         "16.04",
         "18.04"
-      ]
-    },
-    {
-      "operatingsystem": "OpenSUSE",
-      "operatingsystemrelease": [
-        "11",
-        "12"
-      ]
-    },
-    {
-      "operatingsystem": "SLES",
-      "operatingsystemrelease": [
-        "12"
-      ]
-    },
-    {
-      "operatingsystem": "RedHat",
-      "operatingsystemrelease": [
-        "7",
-        "8"
-      ]
-    },
-    {
-      "operatingsystem": "CentOS",
-      "operatingsystemrelease": [
-        "7",
-        "8"
-      ]
-    },
-    {
-      "operatingsystem": "OracleLinux",
-      "operatingsystemrelease": [
-        "7",
-        "8"
       ]
     }
   ],
@@ -84,12 +101,12 @@
   "source": "https://github.com/voxpupuli/puppet-openvmtools.git",
   "summary": "Install Open Virtual Machine Tools packages on VMware guests.",
   "tags": [
+    "open-vm-tools",
     "virtualization",
+    "vmtools",
     "vmware",
     "vmware-tools",
-    "vmware_tools",
-    "vmtools",
-    "open-vm-tools"
+    "vmware_tools"
   ],
   "version": "2.0.0"
 }
