@@ -25,6 +25,7 @@ describe 'openvmtools', type: 'class' do
     end
     it { should_not contain_package('open-vm-tools') }
     it { should_not contain_package('open-vm-tools-desktop') }
+    it { should_not contain_service('vgauthd') }
     it { should_not contain_service('vmtoolsd') }
   end
 
@@ -50,6 +51,7 @@ describe 'openvmtools', type: 'class' do
     end
     it { should_not contain_package('open-vm-tools') }
     it { should_not contain_package('open-vm-tools-desktop') }
+    it { should_not contain_service('vgauthd') }
     it { should_not contain_service('vmtoolsd') }
   end
 
@@ -79,6 +81,14 @@ describe 'openvmtools', type: 'class' do
     }
     it { should contain_package('open-vm-tools') }
     it { should_not contain_package('open-vm-tools-desktop') }
+    it {
+      should contain_service('vgauthd').with(
+        ensure:    'running',
+        enable:    true,
+        hasstatus: true,
+        require:   '[Package[open-vm-tools]{:name=>"open-vm-tools"}]'
+      )
+    }
     it {
       should contain_service('vmtoolsd').with(
         ensure:    'running',
@@ -111,6 +121,14 @@ describe 'openvmtools', type: 'class' do
     end
     it { should contain_package('open-vm-tools') }
     it { should_not contain_package('open-vm-tools-desktop') }
+    it {
+      should contain_service('vgauthd').with(
+        ensure:    'running',
+        enable:    true,
+        hasstatus: true,
+        require:   '[Package[open-vm-tools]{:name=>"open-vm-tools"}]'
+      )
+    }
     it {
       should contain_service('vmtoolsd').with(
         ensure:    'running',
@@ -242,6 +260,7 @@ describe 'openvmtools', type: 'class' do
     describe 'ensure => absent' do
       let(:params) { { ensure: 'absent' } }
       it { should contain_package('open-vm-tools').with_ensure('absent') }
+      it { should contain_service('vgauthd').with_ensure('stopped') }
       it { should contain_service('vmtoolsd').with_ensure('stopped') }
     end
 

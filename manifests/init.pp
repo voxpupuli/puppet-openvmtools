@@ -50,7 +50,7 @@
 #   Default: auto-set, platform specific
 #
 # [*service_name*]
-#   Name of openvmtools service.
+#   Name of openvmtools service(s).
 #   Only set this if your platform is not supported or you know what you are
 #   doing.
 #   Default: auto-set, platform specific
@@ -85,20 +85,20 @@
 # Copyright (C) 2017 Vox Pupuli
 #
 class openvmtools (
-  Enum['absent','present'] $ensure                    = 'present',
-  Boolean                  $autoupgrade               = false,
-  Boolean                  $desktop_package_conflicts = false,
-  String[1]                $desktop_package_name      = 'open-vm-tools-desktop',
-  Boolean                  $manage_epel               = false,
-  String[1]                $package_name              = 'open-vm-tools',
-  Boolean                  $service_enable            = true,
-  Stdlib::Ensure::Service  $service_ensure            = 'running',
-  Boolean                  $service_hasstatus         = true,
-  String[1]                $service_name              = 'vmtoolsd',
-  Optional[String[1]]      $service_pattern           = undef,
-  Boolean                  $supported                 = false,
-  Boolean                  $uninstall_vmware_tools    = false,
-  Boolean                  $with_desktop              = false,
+  Enum['absent','present']            $ensure                    = 'present',
+  Boolean                             $autoupgrade               = false,
+  Boolean                             $desktop_package_conflicts = false,
+  String[1]                           $desktop_package_name      = 'open-vm-tools-desktop',
+  Boolean                             $manage_epel               = false,
+  String[1]                           $package_name              = 'open-vm-tools',
+  Boolean                             $service_enable            = true,
+  Stdlib::Ensure::Service             $service_ensure            = 'running',
+  Boolean                             $service_hasstatus         = true,
+  Variant[String[1],Array[String[1]]] $service_name              = ['vgauthd', 'vmtoolsd'],
+  Optional[String[1]]                 $service_pattern           = undef,
+  Boolean                             $supported                 = false,
+  Boolean                             $uninstall_vmware_tools    = false,
+  Boolean                             $with_desktop              = false,
 ) {
 
   if $facts['virtual'] == 'vmware' {
