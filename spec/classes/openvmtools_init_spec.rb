@@ -7,11 +7,9 @@ describe 'openvmtools', type: 'class' do
     let(:params) { {} }
     let :facts do
       {
-        virtual:                   'foo',
-        osfamily:                  'foo',
         operatingsystem:           'foo',
-        operatingsystemrelease:    '1',
         operatingsystemmajrelease: '1',
+        operatingsystemrelease:    '1',
         os:                        {
           family:  'foo',
           name:    'foo',
@@ -20,7 +18,9 @@ describe 'openvmtools', type: 'class' do
             major: '1',
             minor: '1'
           }
-        }
+        },
+        osfamily:                  'foo',
+        virtual:                   'foo'
       }
     end
     it { should_not contain_package('open-vm-tools') }
@@ -32,11 +32,9 @@ describe 'openvmtools', type: 'class' do
     let(:params) { {} }
     let :facts do
       {
-        virtual:                   'foo',
-        osfamily:                  'RedHat',
         operatingsystem:           'RedHat',
-        operatingsystemrelease:    '7.0',
         operatingsystemmajrelease: '7',
+        operatingsystemrelease:    '7.0',
         os:                        {
           family:  'RedHat',
           name:    'RedHat',
@@ -45,7 +43,9 @@ describe 'openvmtools', type: 'class' do
             major: '7',
             minor: '0'
           }
-        }
+        },
+        osfamily:                  'RedHat',
+        virtual:                   'foo'
       }
     end
     it { should_not contain_package('open-vm-tools') }
@@ -57,11 +57,9 @@ describe 'openvmtools', type: 'class' do
     let(:params) { {} }
     let :facts do
       {
-        virtual:                   'vmware',
-        osfamily:                  'RedHat',
         operatingsystem:           'RedHat',
-        operatingsystemrelease:    '6.0',
         operatingsystemmajrelease: '6',
+        operatingsystemrelease:    '6.0',
         os:                        {
           family:  'RedHat',
           name:    'RedHat',
@@ -70,7 +68,9 @@ describe 'openvmtools', type: 'class' do
             major: '6',
             minor: '0'
           }
-        }
+        },
+        osfamily:                  'RedHat',
+        virtual:                   'vmware'
       }
     end
     it { should_not contain_package('open-vm-tools') }
@@ -82,11 +82,9 @@ describe 'openvmtools', type: 'class' do
     let(:params) { {} }
     let :facts do
       {
-        virtual:                   'vmware',
-        osfamily:                  'RedHat',
         operatingsystem:           'RedHat',
-        operatingsystemrelease:    '7.0',
         operatingsystemmajrelease: '7',
+        operatingsystemrelease:    '7.0',
         os:                        {
           family:  'RedHat',
           name:    'RedHat',
@@ -95,7 +93,9 @@ describe 'openvmtools', type: 'class' do
             major: '7',
             minor: '0'
           }
-        }
+        },
+        osfamily:                  'RedHat',
+        virtual:                   'vmware'
       }
     end
     it { should contain_package('open-vm-tools') }
@@ -105,8 +105,7 @@ describe 'openvmtools', type: 'class' do
         ensure:    'running',
         enable:    true,
         hasstatus: true,
-        pattern:   'vmtoolsd',
-        require:   'Package[open-vm-tools]'
+        require:   '[Package[open-vm-tools]{:name=>"open-vm-tools"}]'
       )
     }
   end
@@ -115,11 +114,9 @@ describe 'openvmtools', type: 'class' do
     let(:params) { {} }
     let :facts do
       {
-        virtual:                   'vmware',
-        osfamily:                  'Debian',
         operatingsystem:           'Ubuntu',
-        operatingsystemrelease:    '14.04',
         operatingsystemmajrelease: '14',
+        operatingsystemrelease:    '14.04',
         os:                        {
           family:  'Debian',
           name:    'Ubuntu',
@@ -128,7 +125,9 @@ describe 'openvmtools', type: 'class' do
             major: '14',
             minor: '04'
           }
-        }
+        },
+        osfamily:                  'Debian',
+        virtual:                   'vmware'
       }
     end
     it { should contain_package('open-vm-tools') }
@@ -138,8 +137,7 @@ describe 'openvmtools', type: 'class' do
         ensure:    'running',
         enable:    true,
         hasstatus: false,
-        pattern:   'vmtoolsd',
-        require:   'Package[open-vm-tools]'
+        require:   '[Package[open-vm-tools]{:name=>"open-vm-tools"}]'
       )
     }
   end
@@ -147,11 +145,9 @@ describe 'openvmtools', type: 'class' do
   context 'on a supported RedHat os, vmware platform, custom parameters' do
     let :facts do
       {
-        virtual:                   'vmware',
-        osfamily:                  'RedHat',
         operatingsystem:           'RedHat',
-        operatingsystemrelease:    '7.0',
         operatingsystemmajrelease: '7',
+        operatingsystemrelease:    '7.0',
         os:                        {
           family:  'RedHat',
           name:    'RedHat',
@@ -160,7 +156,9 @@ describe 'openvmtools', type: 'class' do
             major: '7',
             minor: '0'
           }
-        }
+        },
+        osfamily:                  'RedHat',
+        virtual:                   'vmware'
       }
     end
 
