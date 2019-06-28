@@ -57,7 +57,7 @@
 #
 # === Sample Usage:
 #
-#   class { 'openvmtools': }
+#   include openvmtools
 #
 # === Authors:
 #
@@ -69,74 +69,53 @@
 # Copyright (C) 2017 Vox Pupuli
 #
 class openvmtools (
-  $ensure                = 'present',
-  $autoupgrade           = false,
-  $desktop_package_name  = $openvmtools::params::desktop_package_name,
-  $package_name          = $openvmtools::params::package_name,
-  $service_enable        = true,
-  $service_ensure        = 'running',
-  $service_hasstatus     = $openvmtools::params::service_hasstatus,
-  $service_name          = $openvmtools::params::service_name,
-  $service_pattern       = 'vmtoolsd',
-  $with_desktop          = false,
-) inherits openvmtools::params {
+  Enum['absent','present'] $ensure               = 'present',
+  Boolean                  $autoupgrade          = false,
+  String[1]                $desktop_package_name = 'open-vm-tools-desktop',
+  String[1]                $package_name         = 'open-vm-tools',
+  Boolean                  $service_enable       = true,
+  Stdlib::Ensure::Service  $service_ensure       = 'running',
+  Boolean                  $service_hasstatus    = true,
+  String[1]                $service_name         = 'vmtoolsd',
+  Optional[String[1]]      $service_pattern      = undef,
+  Boolean                  $supported            = false,
+  Boolean                  $with_desktop         = false,
+) {
 
-  $supported = $openvmtools::params::supported
-
-  # Validate our booleans
-  validate_bool($with_desktop)
-  validate_bool($autoupgrade)
-  validate_bool($service_enable)
-  validate_bool($service_hasstatus)
-  validate_bool($supported)
-
-  case $ensure {
-    /(present)/: {
-      if $autoupgrade == true {
-        $package_ensure = 'latest'
-      } else {
-        $package_ensure = 'present'
-      }
-
-      if $service_ensure in [ running, stopped ] {
+  if $facts['virtual'] == 'vmware' {
+    if $supported {
+      if $ensure == 'present' {
+        $package_ensure = $autoupgrade ? {
+          true    => 'latest',
+          default => 'present',
+        }
         $service_ensure_real = $service_ensure
-      } else {
-        fail('service_ensure parameter must be running or stopped')
+      } else {  # ensure == 'absent'
+        $package_ensure = 'absent'
+        $service_ensure_real = 'stopped'
       }
-    }
-    /(absent)/: {
-      $package_ensure = 'absent'
-      $service_ensure_real = 'stopped'
-    }
-    default: {
-      fail('ensure parameter must be present or absent')
-    }
-  }
 
-  case $::virtual {
-    'vmware': {
-      if $supported {
-        package { $package_name :
-          ensure => $package_ensure,
-        }
-        if $with_desktop {
-          package { $desktop_package_name :
-            ensure => $package_ensure,
-          }
-        }
-
-        service { $service_name :
-          ensure    => $service_ensure_real,
-          enable    => $service_enable,
-          hasstatus => $service_hasstatus,
-          pattern   => $service_pattern,
-          require   => Package[$package_name],
-        }
-      } else {
-        notice "Your operating system ${::operatingsystem} is unsupported and will not have the Open Virtual Machine Tools installed."
+      $packages = $with_desktop ? {
+        true    => [ $package_name, $desktop_package_name ],
+        default => [ $package_name ],
       }
+
+      package { $packages:
+        ensure => $package_ensure,
+      }
+
+      service { $service_name:
+        ensure    => $service_ensure_real,
+        enable    => $service_enable,
+        hasstatus => $service_hasstatus,
+        pattern   => $service_pattern,
+        require   => Package[$packages],
+      }
+    } else { # ! $supported
+      notice(sprintf("Your operating system %s is unsupported and will not have \
+the Open Virtual Machine Tools installed.", $::operatingsystem))
     }
+  } else {
     # If we are not on VMware, do not do anything.
-    default: { }
   }
 }

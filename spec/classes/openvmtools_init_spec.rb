@@ -11,7 +11,16 @@ describe 'openvmtools', type: 'class' do
         osfamily:                  'foo',
         operatingsystem:           'foo',
         operatingsystemrelease:    '1',
-        operatingsystemmajrelease: '1'
+        operatingsystemmajrelease: '1',
+        os:                        {
+          family:  'foo',
+          name:    'foo',
+          release: {
+            full:  '1.1',
+            major: '1',
+            minor: '1'
+          }
+        }
       }
     end
     it { should_not contain_package('open-vm-tools') }
@@ -27,7 +36,16 @@ describe 'openvmtools', type: 'class' do
         osfamily:                  'RedHat',
         operatingsystem:           'RedHat',
         operatingsystemrelease:    '7.0',
-        operatingsystemmajrelease: '7'
+        operatingsystemmajrelease: '7',
+        os:                        {
+          family:  'RedHat',
+          name:    'RedHat',
+          release: {
+            full:  '7.0',
+            major: '7',
+            minor: '0'
+          }
+        }
       }
     end
     it { should_not contain_package('open-vm-tools') }
@@ -43,7 +61,16 @@ describe 'openvmtools', type: 'class' do
         osfamily:                  'RedHat',
         operatingsystem:           'RedHat',
         operatingsystemrelease:    '6.0',
-        operatingsystemmajrelease: '6'
+        operatingsystemmajrelease: '6',
+        os:                        {
+          family:  'RedHat',
+          name:    'RedHat',
+          release: {
+            full:  '6.0',
+            major: '6',
+            minor: '0'
+          }
+        }
       }
     end
     it { should_not contain_package('open-vm-tools') }
@@ -59,7 +86,16 @@ describe 'openvmtools', type: 'class' do
         osfamily:                  'RedHat',
         operatingsystem:           'RedHat',
         operatingsystemrelease:    '7.0',
-        operatingsystemmajrelease: '7'
+        operatingsystemmajrelease: '7',
+        os:                        {
+          family:  'RedHat',
+          name:    'RedHat',
+          release: {
+            full:  '7.0',
+            major: '7',
+            minor: '0'
+          }
+        }
       }
     end
     it { should contain_package('open-vm-tools') }
@@ -83,7 +119,16 @@ describe 'openvmtools', type: 'class' do
         osfamily:                  'Debian',
         operatingsystem:           'Ubuntu',
         operatingsystemrelease:    '14.04',
-        operatingsystemmajrelease: '14.04'
+        operatingsystemmajrelease: '14',
+        os:                        {
+          family:  'Debian',
+          name:    'Ubuntu',
+          release: {
+            full:  '14.04',
+            major: '14',
+            minor: '04'
+          }
+        }
       }
     end
     it { should contain_package('open-vm-tools') }
@@ -106,7 +151,16 @@ describe 'openvmtools', type: 'class' do
         osfamily:                  'RedHat',
         operatingsystem:           'RedHat',
         operatingsystemrelease:    '7.0',
-        operatingsystemmajrelease: '7'
+        operatingsystemmajrelease: '7',
+        os:                        {
+          family:  'RedHat',
+          name:    'RedHat',
+          release: {
+            full:  '7.0',
+            major: '7',
+            minor: '0'
+          }
+        }
       }
     end
 
