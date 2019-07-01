@@ -1,57 +1,120 @@
 {
-  "name": "razorsedge-openvmtools",
-  "version": "1.1.0",
-  "author": "razorsedge",
-  "summary": "Install Open Virtual Machine Tools packages on VMware guests.",
-  "license": "Apache-2.0",
-  "source": "https://github.com/razorsedge/puppet-openvmtools.git",
-  "project_page": "https://github.com/razorsedge/puppet-openvmtools",
-  "issues_url": "https://github.com/razorsedge/puppet-openvmtools/issues",
-  "tags": [ "virtualization", "vmware", "vmware-tools", "vmware_tools", "vmtools", "open-vm-tools" ],
+  "author": "Vox Pupuli <voxpupuli@groups.io>",
   "dependencies": [
     {
+      "name": "stahnma/epel",
+      "version_requirement": ">=1.2.2 <2.0.0"
+    },
+    {
       "name": "puppetlabs/stdlib",
-      "version_requirement": ">=2.3.0 <5.0.0"
+      "version_requirement": ">=2.3.0 <7.0.0"
+    },
+    {
+      "name": "puppetlabs/yumrepo_core",
+      "version_requirement": ">=1.0.0 <2.0.0"
     }
   ],
+  "issues_url": "https://github.com/voxpupuli/puppet-openvmtools/issues",
+  "license": "Apache-2.0",
+  "name": "puppet-openvmtools",
   "operatingsystem_support": [
     {
-      "operatingsystem": "Fedora",
-      "operatingsystemrelease": [ "19", "20", "21" ]
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "6",
+        "7",
+        "8"
+      ]
     },
     {
       "operatingsystem": "Debian",
-      "operatingsystemrelease": [ "7" ]
+      "operatingsystemrelease": [
+        "7",
+        "8",
+        "9"
+      ]
     },
     {
-      "operatingsystem": "Ubuntu",
-      "operatingsystemrelease": [ "12.04", "14.04" ]
+      "operatingsystem": "Fedora",
+      "operatingsystemrelease": [
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25"
+      ]
+    },
+    {
+      "operatingsystem": "FreeBSD",
+      "operatingsystemrelease": [
+        "10",
+        "11",
+        "12"
+      ]
     },
     {
       "operatingsystem": "OpenSUSE",
-      "operatingsystemrelease": [ "11" ]
-    },
-    {
-      "operatingsystem": "SLES",
-      "operatingsystemrelease": [ "12" ]
-    },
-    {
-      "operatingsystem": "RedHat",
-      "operatingsystemrelease": [ "7" ]
-    },
-    {
-      "operatingsystem": "CentOS",
-      "operatingsystemrelease": [ "7" ]
+      "operatingsystemrelease": [
+        "11",
+        "12",
+        "13",
+        "42",
+        "15"
+      ]
     },
     {
       "operatingsystem": "OracleLinux",
-      "operatingsystemrelease": [ "7" ]
+      "operatingsystemrelease": [
+        "6",
+        "7",
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "6",
+        "7",
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "SLES",
+      "operatingsystemrelease": [
+        "12",
+        "13",
+        "14",
+        "15"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "12.04",
+        "14.04",
+        "16.04",
+        "18.04"
+      ]
     }
   ],
+  "project_page": "https://github.com/voxpupuli/puppet-openvmtools",
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">=2.7.20 <5.0.0"
+      "version_requirement": ">=4.10.0 <7.0.0"
     }
-  ]
+  ],
+  "source": "https://github.com/voxpupuli/puppet-openvmtools.git",
+  "summary": "Install Open Virtual Machine Tools packages on VMware guests.",
+  "tags": [
+    "open-vm-tools",
+    "virtualization",
+    "vmtools",
+    "vmware",
+    "vmware-tools",
+    "vmware_tools"
+  ],
+  "version": "2.0.0"
 }
