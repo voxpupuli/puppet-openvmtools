@@ -23,10 +23,11 @@ describe 'openvmtools', type: 'class' do
         virtual:                   'foo'
       }
     end
-    it { should_not contain_package('open-vm-tools') }
-    it { should_not contain_package('open-vm-tools-desktop') }
-    it { should_not contain_service('vgauthd') }
-    it { should_not contain_service('vmtoolsd') }
+
+    it { is_expected.not_to contain_package('open-vm-tools') }
+    it { is_expected.not_to contain_package('open-vm-tools-desktop') }
+    it { is_expected.not_to contain_service('vgauthd') }
+    it { is_expected.not_to contain_service('vmtoolsd') }
   end
 
   context 'on a supported os, non-vmware platform' do
@@ -49,10 +50,11 @@ describe 'openvmtools', type: 'class' do
         virtual:                   'foo'
       }
     end
-    it { should_not contain_package('open-vm-tools') }
-    it { should_not contain_package('open-vm-tools-desktop') }
-    it { should_not contain_service('vgauthd') }
-    it { should_not contain_service('vmtoolsd') }
+
+    it { is_expected.not_to contain_package('open-vm-tools') }
+    it { is_expected.not_to contain_package('open-vm-tools-desktop') }
+    it { is_expected.not_to contain_service('vgauthd') }
+    it { is_expected.not_to contain_service('vmtoolsd') }
   end
 
   context 'on a supported RedHat 6 os, vmware platform' do
@@ -75,14 +77,15 @@ describe 'openvmtools', type: 'class' do
         virtual:                   'vmware'
       }
     end
-    it { should contain_class('epel') }
+
+    it { is_expected.to contain_class('epel') }
     it {
-      should contain_yumrepo('epel').that_comes_before('Package[open-vm-tools]')
+      is_expected.to contain_yumrepo('epel').that_comes_before('Package[open-vm-tools]')
     }
-    it { should contain_package('open-vm-tools') }
-    it { should_not contain_package('open-vm-tools-desktop') }
+    it { is_expected.to contain_package('open-vm-tools') }
+    it { is_expected.not_to contain_package('open-vm-tools-desktop') }
     it {
-      should contain_service('vgauthd').with(
+      is_expected.to contain_service('vgauthd').with(
         ensure:    'running',
         enable:    true,
         hasstatus: true,
@@ -90,7 +93,7 @@ describe 'openvmtools', type: 'class' do
       )
     }
     it {
-      should contain_service('vmtoolsd').with(
+      is_expected.to contain_service('vmtoolsd').with(
         ensure:    'running',
         enable:    true,
         hasstatus: true,
@@ -119,10 +122,11 @@ describe 'openvmtools', type: 'class' do
         virtual:                   'vmware'
       }
     end
-    it { should contain_package('open-vm-tools') }
-    it { should_not contain_package('open-vm-tools-desktop') }
+
+    it { is_expected.to contain_package('open-vm-tools') }
+    it { is_expected.not_to contain_package('open-vm-tools-desktop') }
     it {
-      should contain_service('vgauthd').with(
+      is_expected.to contain_service('vgauthd').with(
         ensure:    'running',
         enable:    true,
         hasstatus: true,
@@ -130,7 +134,7 @@ describe 'openvmtools', type: 'class' do
       )
     }
     it {
-      should contain_service('vmtoolsd').with(
+      is_expected.to contain_service('vmtoolsd').with(
         ensure:    'running',
         enable:    true,
         hasstatus: true,
@@ -159,10 +163,11 @@ describe 'openvmtools', type: 'class' do
         virtual:                   'vmware'
       }
     end
-    it { should contain_package('open-vm-tools') }
-    it { should_not contain_package('open-vm-tools-desktop') }
+
+    it { is_expected.to contain_package('open-vm-tools') }
+    it { is_expected.not_to contain_package('open-vm-tools-desktop') }
     it {
-      should contain_service('open-vm-tools').with(
+      is_expected.to contain_service('open-vm-tools').with(
         ensure:    'running',
         enable:    true,
         hasstatus: false,
@@ -191,10 +196,11 @@ describe 'openvmtools', type: 'class' do
         virtual:                   'vmware'
       }
     end
-    it { should contain_package('open-vm-tools-nox11') }
-    it { should_not contain_package('open-vm-tools') }
+
+    it { is_expected.to contain_package('open-vm-tools-nox11') }
+    it { is_expected.not_to contain_package('open-vm-tools') }
     it {
-      should contain_service('vmware_guestd').with(
+      is_expected.to contain_service('vmware_guestd').with(
         ensure:    'running',
         enable:    true,
         hasstatus: true,
@@ -224,10 +230,11 @@ describe 'openvmtools', type: 'class' do
         virtual:                   'vmware'
       }
     end
-    it { should contain_package('open-vm-tools-nox11') }
-    it { should_not contain_package('open-vm-tools') }
+
+    it { is_expected.to contain_package('open-vm-tools-nox11') }
+    it { is_expected.not_to contain_package('open-vm-tools') }
     it {
-      should contain_service('vmware_guestd').with(
+      is_expected.to contain_service('vmware_guestd').with(
         ensure:    'running',
         enable:    true,
         hasstatus: true,
@@ -259,22 +266,25 @@ describe 'openvmtools', type: 'class' do
 
     describe 'ensure => absent' do
       let(:params) { { ensure: 'absent' } }
-      it { should contain_package('open-vm-tools').with_ensure('absent') }
-      it { should contain_service('vgauthd').with_ensure('stopped') }
-      it { should contain_service('vmtoolsd').with_ensure('stopped') }
+
+      it { is_expected.to contain_package('open-vm-tools').with_ensure('absent') }
+      it { is_expected.to contain_service('vgauthd').with_ensure('stopped') }
+      it { is_expected.to contain_service('vmtoolsd').with_ensure('stopped') }
     end
 
     describe 'with_desktop => true' do
       let(:params) { { with_desktop: true } }
+
       it {
-        should contain_package('open-vm-tools-desktop').with_ensure('present')
+        is_expected.to contain_package('open-vm-tools-desktop').with_ensure('present')
       }
     end
 
     describe 'uninstall_vmware_tools => true' do
       let(:params) { { uninstall_vmware_tools: true } }
+
       it {
-        should contain_package('VMwareTools').with_ensure('absent')
+        is_expected.to contain_package('VMwareTools').with_ensure('absent')
       }
     end
   end
@@ -300,16 +310,18 @@ describe 'openvmtools', type: 'class' do
 
     describe 'ensure => absent' do
       let(:params) { { ensure: 'absent' } }
-      it { should contain_package('open-vm-tools-nox11').with_ensure('absent') }
-      it { should contain_service('vmware_guestd').with_ensure('stopped') }
+
+      it { is_expected.to contain_package('open-vm-tools-nox11').with_ensure('absent') }
+      it { is_expected.to contain_service('vmware_guestd').with_ensure('stopped') }
     end
 
     describe 'with_desktop => true' do
       let(:params) { { with_desktop: true } }
-      it { should contain_package('open-vm-tools') }
-      it { should_not contain_package('open-vm-tools-nox11') }
+
+      it { is_expected.to contain_package('open-vm-tools') }
+      it { is_expected.not_to contain_package('open-vm-tools-nox11') }
       it {
-        should contain_service('vmware_guestd').with(
+        is_expected.to contain_service('vmware_guestd').with(
           ensure:    'running',
           enable:    true,
           hasstatus: true,
