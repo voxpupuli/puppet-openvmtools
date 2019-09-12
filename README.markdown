@@ -188,7 +188,7 @@ open-vm-tools is available with these operating systems:
 * Oracle Linux 6 and later releases
 * Red Hat Enterprise Linux 6.0 and later releases
 * SUSE Linux Enterprise 12 and later releases
-* Ubuntu 12.04 and later LTS releases
+* Ubuntu 14.04 and later LTS releases
 * openSUSE 11.x and later releases
 
 ### Notes
