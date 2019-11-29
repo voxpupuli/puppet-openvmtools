@@ -205,7 +205,7 @@ open-vm-tools is available with these operating systems:
 
 ## Development
 
-Please see [Vox Populi Documentation](https://voxpupuli.org/docs/) for information on how to contribute.
+Please see [CONTRIBUTING.md](.github/CONTRIBUTING.md) for information on how to contribute.
 
 Copyright (C) 2017 Vox Pupuli <voxpupuli@groups.io>
 
