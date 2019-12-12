@@ -156,8 +156,7 @@ class openvmtools (
         require   => Package[$packages],
       }
     } else { # ! $supported
-      notice(sprintf("Your operating system %s is unsupported and will not have \
-the Open Virtual Machine Tools installed.", $facts['os']['name']))
+      notice("Your operating system ${facts['os']['name']} is unsupported and will not have the Open Virtual Machine Tools installed.")
     }
   } else {
     # If we are not on VMware, do not do anything.
