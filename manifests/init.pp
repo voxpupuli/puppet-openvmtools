@@ -157,7 +157,7 @@ class openvmtools (
       }
     } else { # ! $supported
       notice(sprintf("Your operating system %s is unsupported and will not have \
-the Open Virtual Machine Tools installed.", $::operatingsystem))
+the Open Virtual Machine Tools installed.", $facts['os']['name']))
     }
   } else {
     # If we are not on VMware, do not do anything.
