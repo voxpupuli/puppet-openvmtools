@@ -1,5 +1,17 @@
 # Changelog
 
+All notable changes to this project will be documented in this file.
+Each new release typically also includes the latest modulesync defaults.
+These should not affect the functionality of the module.
+
+## [v2.0.1](https://github.com/voxpupuli/puppet-openvmtools/tree/v2.0.1) (2020-01-24)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-openvmtools/compare/v2.0.0...v2.0.1)
+
+**Closed issues:**
+
+- Publishing on the forge? [\#23](https://github.com/voxpupuli/puppet-openvmtools/issues/23)
+
 ## [v2.0.0](https://github.com/voxpupuli/puppet-openvmtools/tree/v2.0.0) (2020-01-17)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-openvmtools/compare/1.1.0...v2.0.0)
@@ -22,12 +34,10 @@
 
 **Merged pull requests:**
 
-- modulesync 2.10.0 [\#22](https://github.com/voxpupuli/puppet-openvmtools/pull/22) ([bastelfreak](https://github.com/bastelfreak))
-- modulesync 2.9.0 [\#21](https://github.com/voxpupuli/puppet-openvmtools/pull/21) ([dhoppe](https://github.com/dhoppe))
+- Add missing changelog [\#24](https://github.com/voxpupuli/puppet-openvmtools/pull/24) ([dhoppe](https://github.com/dhoppe))
 - Fix broken link. [\#20](https://github.com/voxpupuli/puppet-openvmtools/pull/20) ([pillarsdotnet](https://github.com/pillarsdotnet))
 - Remove duplicate CONTRIBUTING.md file [\#18](https://github.com/voxpupuli/puppet-openvmtools/pull/18) ([dhoppe](https://github.com/dhoppe))
 - Drop support for Ubuntu 12.04 LTS [\#17](https://github.com/voxpupuli/puppet-openvmtools/pull/17) ([ghoneycutt](https://github.com/ghoneycutt))
-- modulesync 2.8.0 [\#16](https://github.com/voxpupuli/puppet-openvmtools/pull/16) ([bastelfreak](https://github.com/bastelfreak))
 
 ## [1.1.0](https://github.com/voxpupuli/puppet-openvmtools/tree/1.1.0) (2017-07-16)
 
