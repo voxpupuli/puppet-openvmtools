@@ -148,7 +148,13 @@ class openvmtools (
         ensure => $package_ensure,
       }
 
-      service { $service_name:
+      file { '/var/run/vmware':
+        ensure => directory,
+        owner  => 'root',
+        group  => 'root',
+        mode   => '0755',
+      }
+      -> service { $service_name:
         ensure    => $service_ensure_real,
         enable    => $service_enable,
         hasstatus => $service_hasstatus,
