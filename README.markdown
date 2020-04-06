@@ -126,7 +126,7 @@ Default: auto-set, platform specific
 
 ##### `manage_epel`
 
-Boolean that determines if stahnma-epel is required for packages.
+Boolean that determines if puppet-epel is required for packages.
 This should only needed for RedHat (EL) 6.
 Default: auto-set, platform specific
 
