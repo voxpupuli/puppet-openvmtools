@@ -1,4 +1,5 @@
 ---
+os: linux
 dist: bionic
 language: ruby
 cache: bundler
@@ -7,7 +8,7 @@ before_install:
   - bundle --version
 script:
   - 'bundle exec rake $CHECK'
-matrix:
+jobs:
   fast_finish: true
   include:
   - rvm: 2.4.4
@@ -36,7 +37,7 @@ notifications:
       - "chat.freenode.org#voxpupuli-notifications"
 deploy:
   provider: puppetforge
-  user: puppet
+  username: puppet
   password:
     secure: "ocOmYtf/NV0Xg123mRH/0529JA2yJHkqx+EdgQTbGl+7H4RP7eFUGP6m7o8mdezugkMcPsZpISUJ3WtDNNRDsPctPreAMdQlzTqlheu85lkn5pNbIhMAEjV3x8qA0ey8hGgshwnI4Nj+DBmciVMBzt2qBHxqq8wFhSvrA7YOM/k="
   on:

@@ -100,7 +100,6 @@ class openvmtools (
   Boolean                             $uninstall_vmware_tools    = false,
   Boolean                             $with_desktop              = false,
 ) {
-
   if $facts['virtual'] == 'vmware' {
     if $supported {
       if $ensure == 'present' {
@@ -109,17 +108,17 @@ class openvmtools (
           default => 'present',
         }
         $service_ensure_real = $service_ensure
-      } else {  # ensure == 'absent'
+      } else { # ensure == 'absent'
         $package_ensure = 'absent'
         $service_ensure_real = 'stopped'
       }
 
       $packages = $with_desktop ? {
         true    => $desktop_package_conflicts ? {
-          true    => [ $desktop_package_name ],
-          default => [ $package_name, $desktop_package_name ],
+          true    => [$desktop_package_name],
+          default => [$package_name, $desktop_package_name],
         },
-        default => [ $package_name ],
+        default => [$package_name],
       }
 
       if $manage_epel {
