@@ -143,20 +143,19 @@ describe 'openvmtools', type: 'class' do
     }
   end
 
-  context 'on a supported Debian 14 os, vmware platform, default parameters' do
+  context 'on a supported Ubuntu 14.04 os, vmware platform, default parameters' do
     let(:params) { {} }
     let :facts do
       {
         operatingsystem:           'Ubuntu',
-        operatingsystemmajrelease: '14',
+        operatingsystemmajrelease: '14.04',
         operatingsystemrelease:    '14.04',
         os:                        {
           family:  'Debian',
           name:    'Ubuntu',
           release: {
             full:  '14.04',
-            major: '14',
-            minor: '04'
+            major: '14.04',
           }
         },
         osfamily:                  'Debian',
