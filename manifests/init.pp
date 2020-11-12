@@ -128,7 +128,7 @@ class openvmtools (
 
       if $uninstall_vmware_tools {
         if $facts['vmware_uninstaller'] =~ Stdlib::Unixpath {
-          $vmware_lib = $facts['vmware_uninstaller'].regex_replace(
+          $vmware_lib = regsubst( $facts['vmware_uninstaller'],
             'bin/vmware-uninstall-tools.pl',
             'lib/vmware-tools'
           )
