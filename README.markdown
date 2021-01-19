@@ -68,7 +68,7 @@ to do anything.
 ### Beginning with this module
 
 It is safe for all nodes to use this declaration.  Any non-VMware or unsupported
-system will skip installtion of the tools.
+system will skip installation of the tools.
 
 ```puppet
 include ::openvmtools
