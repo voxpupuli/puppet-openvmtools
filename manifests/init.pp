@@ -96,12 +96,12 @@ class openvmtools (
   Boolean                             $service_hasstatus         = true,
   Variant[String[1],Array[String[1]]] $service_name              = ['vgauthd', 'vmtoolsd'],
   Optional[String[1]]                 $service_pattern           = undef,
-  Boolean                             $supported                 = false,
+  Optional[Boolean]                   $supported                 = undef,
   Boolean                             $uninstall_vmware_tools    = false,
   Boolean                             $with_desktop              = false,
 ) {
   if $facts['virtual'] == 'vmware' {
-    if $supported {
+    if pick($supported, openvmtools::supported($module_name)) {
       if $ensure == 'present' {
         $package_ensure = $autoupgrade ? {
           true    => 'latest',
