@@ -1,88 +1,64 @@
-# == Class: openvmtools
+# @summary Install the Open Virtual Machine Tools.
 #
-# This class handles installing the Open Virtual Machine Tools.
-#
-# === Parameters:
-#
-# [*ensure*]
+# @param ensure
 #   Ensure if present or absent.
-#   Default: present
 #
-# [*autoupgrade*]
+# @param autoupgrade
 #   Upgrade package automatically, if there is a newer version.
-#   Default: false
 #
-# [*desktop_package_conflicts*]
+# @param desktop_package_conflicts
 #   Boolean that determines whether the desktop conflicts includes and
 #   conflicts with the base package. Only set this if your platform is not
 #   supported or you know what you are doing.
-#   Default: auto-set, platform specific
 #
-# [*desktop_package_name*]
+# @param desktop_package_name
 #   Name of the desktop package.
 #   Only set this if your platform is not supported or you know what you are
 #   doing.
-#   Default: auto-set, platform specific
 #
-# [*manage_epel*]
+# @param manage_epel
 #   Boolean that determines if puppet-epel is required for packages.
 #   This should only needed for RedHat (EL) 6.
-#   Default: auto-set, platform specific
 #
-# [*package_name*]
+# @param package_name
 #   Name of the package.
 #   Only set this if your platform is not supported or you know what you are
 #   doing.
-#   Default: auto-set, platform specific
 #
-# [*service_enable*]
+# @param service_enable
 #   Start service at boot.
-#   Default: true
 #
-# [*service_ensure*]
+# @param service_ensure
 #   Ensure if service is running or stopped.
-#   Default: running
 #
-# [*service_hasstatus*]
+# @param service_hasstatus
 #   Service has status command.
 #   Only set this if your platform is not supported or you know what you are
 #   doing.
-#   Default: auto-set, platform specific
 #
-# [*service_name*]
+# @param service_name
 #   Name of openvmtools service(s).
 #   Only set this if your platform is not supported or you know what you are
 #   doing.
-#   Default: auto-set, platform specific
 #
-# [*service_pattern*]
+# @param service_pattern
 #   Pattern to look for in the process table to determine if the daemon is
 #   running.
 #   Only set this if your platform is not supported or you know what you are
 #   doing.
-#   Default: vmtoolsd
 #
-# [*uninstall_vmware_tools*]
+# @param uninstall_vmware_tools
 #   Boolean that determines whether the conflicting VMWare Tools package should
 #   be uninstalled, if present.
-#   Default: false
 #
-# [*with_desktop*]
+# @param with_desktop
 #   Whether or not to install the desktop/GUI support.
-#   Default: false
 #
-# === Sample Usage:
-#
+# @example Default usage
 #   include openvmtools
 #
-# === Authors:
-#
-# Mike Arnold <mike@razorsedge.org>
-# Vox Pupuli <voxpupuli@groups.io>
-#
-# === Copyright:
-#
-# Copyright (C) 2017 Vox Pupuli
+# @author Mike Arnold <mike@razorsedge.org>
+# @author Vox Pupuli <voxpupuli@groups.io>
 #
 class openvmtools (
   Enum['absent','present']            $ensure                    = 'present',
