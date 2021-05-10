@@ -4,7 +4,37 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
-## [v2.0.1](https://github.com/voxpupuli/puppet-openvmtools/tree/v2.0.1) (2020-01-24)
+## [v2.1.0](https://github.com/voxpupuli/puppet-openvmtools/tree/v2.1.0) (2021-05-10)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-openvmtools/compare/v2.0.1...v2.1.0)
+
+**Breaking changes:**
+
+- Require puppet-epel over stahnma-epel [\#29](https://github.com/voxpupuli/puppet-openvmtools/pull/29) ([dhoppe](https://github.com/dhoppe))
+
+**Implemented enhancements:**
+
+- Autodetect supported instead of using Hiera [\#41](https://github.com/voxpupuli/puppet-openvmtools/pull/41) ([ekohl](https://github.com/ekohl))
+- Support Debian 10 [\#34](https://github.com/voxpupuli/puppet-openvmtools/pull/34) ([ajurjevi](https://github.com/ajurjevi))
+
+**Fixed bugs:**
+
+- Create /var/run/vmware directory [\#27](https://github.com/voxpupuli/puppet-openvmtools/pull/27) ([raphink](https://github.com/raphink))
+
+**Closed issues:**
+
+- Support Debian 10 [\#33](https://github.com/voxpupuli/puppet-openvmtools/issues/33)
+- Ubuntu family is "not supported" [\#30](https://github.com/voxpupuli/puppet-openvmtools/issues/30)
+
+**Merged pull requests:**
+
+- Convert class parameters to puppet-strings [\#43](https://github.com/voxpupuli/puppet-openvmtools/pull/43) ([ekohl](https://github.com/ekohl))
+- Typo fixed \(line 71\) [\#39](https://github.com/voxpupuli/puppet-openvmtools/pull/39) ([kant](https://github.com/kant))
+- Fix regex\_replace error on puppet 5 [\#36](https://github.com/voxpupuli/puppet-openvmtools/pull/36) ([jsosic](https://github.com/jsosic))
+- Fix Ubuntu [\#35](https://github.com/voxpupuli/puppet-openvmtools/pull/35) ([ghoneycutt](https://github.com/ghoneycutt))
+- modulesync 3.0.0 & puppet-lint updates [\#31](https://github.com/voxpupuli/puppet-openvmtools/pull/31) ([bastelfreak](https://github.com/bastelfreak))
+
+## [v2.0.1](https://github.com/voxpupuli/puppet-openvmtools/tree/v2.0.1) (2020-01-25)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-openvmtools/compare/v2.0.0...v2.0.1)
 
