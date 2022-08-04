@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v3.0.0](https://github.com/voxpupuli/puppet-openvmtools/tree/v3.0.0) (2022-08-04)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-openvmtools/compare/v2.1.0...v3.0.0)
+
+**Breaking changes:**
+
+- Update from voxpupuli modulesync\_config; Drop RHEL 6; Drop Puppet 5 [\#53](https://github.com/voxpupuli/puppet-openvmtools/pull/53) ([TheMeier](https://github.com/TheMeier))
+
+**Implemented enhancements:**
+
+- feat: add Rocky Linux to supported OSes [\#51](https://github.com/voxpupuli/puppet-openvmtools/pull/51) ([TheMeier](https://github.com/TheMeier))
+
+**Merged pull requests:**
+
+- Allow stdlib 8.0.0 [\#48](https://github.com/voxpupuli/puppet-openvmtools/pull/48) ([smortex](https://github.com/smortex))
+
 ## [v2.1.0](https://github.com/voxpupuli/puppet-openvmtools/tree/v2.1.0) (2021-07-25)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-openvmtools/compare/v2.0.1...v2.1.0)
@@ -51,7 +67,7 @@ These should not affect the functionality of the module.
 **Breaking changes:**
 
 - Modulesync 2.7.0 and drop Puppet 4 support [\#15](https://github.com/voxpupuli/puppet-openvmtools/pull/15) ([pillarsdotnet](https://github.com/pillarsdotnet))
-- Require at least Puppet 6, support RedHat-7 and FreeBSD, support `vgauthd`, and various other small fixes [\#14](https://github.com/voxpupuli/puppet-openvmtools/pull/14) ([pillarsdotnet](https://github.com/pillarsdotnet))
+- Require at least Puppet 4, support RedHat-6 and FreeBSD, support `vgauthd`, and various other small fixes [\#14](https://github.com/voxpupuli/puppet-openvmtools/pull/14) ([pillarsdotnet](https://github.com/pillarsdotnet))
 
 **Implemented enhancements:**
 
