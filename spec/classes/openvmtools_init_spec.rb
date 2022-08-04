@@ -7,20 +7,20 @@ describe 'openvmtools', type: 'class' do
     let(:params) { {} }
     let :facts do
       {
-        operatingsystem:           'foo',
+        operatingsystem: 'foo',
         operatingsystemmajrelease: '1',
-        operatingsystemrelease:    '1',
-        os:                        {
-          family:  'foo',
-          name:    'foo',
+        operatingsystemrelease: '1',
+        os: {
+          family: 'foo',
+          name: 'foo',
           release: {
-            full:  '1.1',
+            full: '1.1',
             major: '1',
             minor: '1'
           }
         },
-        osfamily:                  'foo',
-        virtual:                   'foo'
+        osfamily: 'foo',
+        virtual: 'foo'
       }
     end
 
@@ -34,20 +34,20 @@ describe 'openvmtools', type: 'class' do
     let(:params) { {} }
     let :facts do
       {
-        operatingsystem:           'RedHat',
+        operatingsystem: 'RedHat',
         operatingsystemmajrelease: '7',
-        operatingsystemrelease:    '7.0',
-        os:                        {
-          family:  'RedHat',
-          name:    'RedHat',
+        operatingsystemrelease: '7.0',
+        os: {
+          family: 'RedHat',
+          name: 'RedHat',
           release: {
-            full:  '7.0',
+            full: '7.0',
             major: '7',
             minor: '0'
           }
         },
-        osfamily:                  'RedHat',
-        virtual:                   'foo'
+        osfamily: 'RedHat',
+        virtual: 'foo'
       }
     end
 
@@ -57,88 +57,45 @@ describe 'openvmtools', type: 'class' do
     it { is_expected.not_to contain_service('vmtoolsd') }
   end
 
-  context 'on a supported RedHat 6 os, vmware platform' do
-    let(:params) { {} }
-    let :facts do
-      {
-        operatingsystem:           'RedHat',
-        operatingsystemmajrelease: '6',
-        operatingsystemrelease:    '6.0',
-        os:                        {
-          family:  'RedHat',
-          name:    'RedHat',
-          release: {
-            full:  '6.0',
-            major: '6',
-            minor: '0'
-          }
-        },
-        osfamily:                  'RedHat',
-        virtual:                   'vmware'
-      }
-    end
-
-    it { is_expected.to contain_class('epel') }
-    it {
-      is_expected.to contain_yumrepo('epel').that_comes_before('Package[open-vm-tools]')
-    }
-    it { is_expected.to contain_package('open-vm-tools') }
-    it { is_expected.not_to contain_package('open-vm-tools-desktop') }
-    it {
-      is_expected.to contain_service('vgauthd').with(
-        ensure:    'running',
-        enable:    true,
-        hasstatus: true,
-        require:   '[Package[open-vm-tools]{:name=>"open-vm-tools"}]'
-      )
-    }
-    it {
-      is_expected.to contain_service('vmtoolsd').with(
-        ensure:    'running',
-        enable:    true,
-        hasstatus: true,
-        require:   '[Package[open-vm-tools]{:name=>"open-vm-tools"}]'
-      )
-    }
-  end
-
   context 'on a supported RedHat 7 os, vmware platform, default parameters' do
     let(:params) { {} }
     let :facts do
       {
-        operatingsystem:           'RedHat',
+        operatingsystem: 'RedHat',
         operatingsystemmajrelease: '7',
-        operatingsystemrelease:    '7.0',
-        os:                        {
-          family:  'RedHat',
-          name:    'RedHat',
+        operatingsystemrelease: '7.0',
+        os: {
+          family: 'RedHat',
+          name: 'RedHat',
           release: {
-            full:  '7.0',
+            full: '7.0',
             major: '7',
             minor: '0'
           }
         },
-        osfamily:                  'RedHat',
-        virtual:                   'vmware'
+        osfamily: 'RedHat',
+        virtual: 'vmware'
       }
     end
 
     it { is_expected.to contain_package('open-vm-tools') }
     it { is_expected.not_to contain_package('open-vm-tools-desktop') }
+
     it {
       is_expected.to contain_service('vgauthd').with(
-        ensure:    'running',
-        enable:    true,
+        ensure: 'running',
+        enable: true,
         hasstatus: true,
-        require:   '[Package[open-vm-tools]{:name=>"open-vm-tools"}]'
+        require: '[Package[open-vm-tools]{:name=>"open-vm-tools"}]'
       )
     }
+
     it {
       is_expected.to contain_service('vmtoolsd').with(
-        ensure:    'running',
-        enable:    true,
+        ensure: 'running',
+        enable: true,
         hasstatus: true,
-        require:   '[Package[open-vm-tools]{:name=>"open-vm-tools"}]'
+        require: '[Package[open-vm-tools]{:name=>"open-vm-tools"}]'
       )
     }
   end
@@ -147,30 +104,31 @@ describe 'openvmtools', type: 'class' do
     let(:params) { {} }
     let :facts do
       {
-        operatingsystem:           'Ubuntu',
+        operatingsystem: 'Ubuntu',
         operatingsystemmajrelease: '14.04',
-        operatingsystemrelease:    '14.04',
-        os:                        {
-          family:  'Debian',
-          name:    'Ubuntu',
+        operatingsystemrelease: '14.04',
+        os: {
+          family: 'Debian',
+          name: 'Ubuntu',
           release: {
-            full:  '14.04',
+            full: '14.04',
             major: '14.04',
           }
         },
-        osfamily:                  'Debian',
-        virtual:                   'vmware'
+        osfamily: 'Debian',
+        virtual: 'vmware'
       }
     end
 
     it { is_expected.to contain_package('open-vm-tools') }
     it { is_expected.not_to contain_package('open-vm-tools-desktop') }
+
     it {
       is_expected.to contain_service('open-vm-tools').with(
-        ensure:    'running',
-        enable:    true,
+        ensure: 'running',
+        enable: true,
         hasstatus: false,
-        require:   '[Package[open-vm-tools]{:name=>"open-vm-tools"}]'
+        require: '[Package[open-vm-tools]{:name=>"open-vm-tools"}]'
       )
     }
   end
@@ -179,31 +137,32 @@ describe 'openvmtools', type: 'class' do
     let(:params) { {} }
     let :facts do
       {
-        operatingsystem:           'FreeBSD',
+        operatingsystem: 'FreeBSD',
         operatingsystemmajrelease: '10',
-        operatingsystemrelease:    '10.4-RELEASE',
-        os:                        {
-          family:  'FreeBSD',
-          name:    'FreeBSD',
+        operatingsystemrelease: '10.4-RELEASE',
+        os: {
+          family: 'FreeBSD',
+          name: 'FreeBSD',
           release: {
-            full:  '10.4-RELEASE',
+            full: '10.4-RELEASE',
             major: '10',
             minor: '4'
           }
         },
-        osfamily:                  'FreeBSD',
-        virtual:                   'vmware'
+        osfamily: 'FreeBSD',
+        virtual: 'vmware'
       }
     end
 
     it { is_expected.to contain_package('open-vm-tools-nox11') }
     it { is_expected.not_to contain_package('open-vm-tools') }
+
     it {
       is_expected.to contain_service('vmware_guestd').with(
-        ensure:    'running',
-        enable:    true,
+        ensure: 'running',
+        enable: true,
         hasstatus: true,
-        require:   "[Package[open-vm-tools-nox11]\
+        require: "[Package[open-vm-tools-nox11]\
 {:name=>\"open-vm-tools-nox11\"}]"
       )
     }
@@ -213,31 +172,32 @@ describe 'openvmtools', type: 'class' do
     let(:params) { {} }
     let :facts do
       {
-        operatingsystem:           'FreeBSD',
+        operatingsystem: 'FreeBSD',
         operatingsystemmajrelease: '11',
-        operatingsystemrelease:    '11.2-RELEASE',
-        os:                        {
-          family:  'FreeBSD',
-          name:    'FreeBSD',
+        operatingsystemrelease: '11.2-RELEASE',
+        os: {
+          family: 'FreeBSD',
+          name: 'FreeBSD',
           release: {
-            full:  '11.2-RELEASE',
+            full: '11.2-RELEASE',
             major: '11',
             minor: '2'
           }
         },
-        osfamily:                  'FreeBSD',
-        virtual:                   'vmware'
+        osfamily: 'FreeBSD',
+        virtual: 'vmware'
       }
     end
 
     it { is_expected.to contain_package('open-vm-tools-nox11') }
     it { is_expected.not_to contain_package('open-vm-tools') }
+
     it {
       is_expected.to contain_service('vmware_guestd').with(
-        ensure:    'running',
-        enable:    true,
+        ensure: 'running',
+        enable: true,
         hasstatus: true,
-        require:   "[Package[open-vm-tools-nox11]\
+        require: "[Package[open-vm-tools-nox11]\
 {:name=>\"open-vm-tools-nox11\"}]"
       )
     }
@@ -246,20 +206,20 @@ describe 'openvmtools', type: 'class' do
   context 'on a supported RedHat 7 os, vmware platform, custom parameters' do
     let :facts do
       {
-        operatingsystem:           'RedHat',
+        operatingsystem: 'RedHat',
         operatingsystemmajrelease: '7',
-        operatingsystemrelease:    '7.0',
-        os:                        {
-          family:  'RedHat',
-          name:    'RedHat',
+        operatingsystemrelease: '7.0',
+        os: {
+          family: 'RedHat',
+          name: 'RedHat',
           release: {
-            full:  '7.0',
+            full: '7.0',
             major: '7',
             minor: '0'
           }
         },
-        osfamily:                  'RedHat',
-        virtual:                   'vmware'
+        osfamily: 'RedHat',
+        virtual: 'vmware'
       }
     end
 
@@ -287,23 +247,24 @@ describe 'openvmtools', type: 'class' do
       }
     end
   end
+
   context 'on a supported FreeBSD 11 os, vmware platform, custom parameters' do
     let :facts do
       {
-        operatingsystem:           'FreeBSD',
+        operatingsystem: 'FreeBSD',
         operatingsystemmajrelease: '11',
-        operatingsystemrelease:    '11.2-RELEASE',
-        os:                        {
-          family:  'FreeBSD',
-          name:    'FreeBSD',
+        operatingsystemrelease: '11.2-RELEASE',
+        os: {
+          family: 'FreeBSD',
+          name: 'FreeBSD',
           release: {
-            full:  '11.2-RELEASE',
+            full: '11.2-RELEASE',
             major: '11',
             minor: '2'
           }
         },
-        osfamily:                  'FreeBSD',
-        virtual:                   'vmware'
+        osfamily: 'FreeBSD',
+        virtual: 'vmware'
       }
     end
 
@@ -319,12 +280,13 @@ describe 'openvmtools', type: 'class' do
 
       it { is_expected.to contain_package('open-vm-tools') }
       it { is_expected.not_to contain_package('open-vm-tools-nox11') }
+
       it {
         is_expected.to contain_service('vmware_guestd').with(
-          ensure:    'running',
-          enable:    true,
+          ensure: 'running',
+          enable: true,
           hasstatus: true,
-          require:   '[Package[open-vm-tools]{:name=>"open-vm-tools"}]'
+          require: '[Package[open-vm-tools]{:name=>"open-vm-tools"}]'
         )
       }
     end
