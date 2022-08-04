@@ -51,7 +51,7 @@ These should not affect the functionality of the module.
 **Breaking changes:**
 
 - Modulesync 2.7.0 and drop Puppet 4 support [\#15](https://github.com/voxpupuli/puppet-openvmtools/pull/15) ([pillarsdotnet](https://github.com/pillarsdotnet))
-- Require at least Puppet 4, support RedHat-6 and FreeBSD, support `vgauthd`, and various other small fixes [\#14](https://github.com/voxpupuli/puppet-openvmtools/pull/14) ([pillarsdotnet](https://github.com/pillarsdotnet))
+- Require at least Puppet 6, support RedHat-7 and FreeBSD, support `vgauthd`, and various other small fixes [\#14](https://github.com/voxpupuli/puppet-openvmtools/pull/14) ([pillarsdotnet](https://github.com/pillarsdotnet))
 
 **Implemented enhancements:**
 
