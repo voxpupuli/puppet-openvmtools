@@ -71,13 +71,13 @@ It is safe for all nodes to use this declaration.  Any non-VMware or unsupported
 system will skip installation of the tools.
 
 ```puppet
-include ::openvmtools
+include openvmtools
 ```
 
 To include the desktop software, set the following parameter:
 
 ```puppet
-class { '::openvmtools':
+class { 'openvmtools':
   with_desktop => true,
 }
 ```
