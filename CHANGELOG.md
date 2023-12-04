@@ -4,6 +4,30 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v4.0.0](https://github.com/voxpupuli/puppet-openvmtools/tree/v4.0.0) (2023-12-04)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-openvmtools/compare/v3.0.0...v4.0.0)
+
+**Breaking changes:**
+
+- Drop Puppet 6 support [\#60](https://github.com/voxpupuli/puppet-openvmtools/pull/60) ([bastelfreak](https://github.com/bastelfreak))
+
+**Implemented enhancements:**
+
+- metadata: allow puppet/epel 5.x [\#67](https://github.com/voxpupuli/puppet-openvmtools/pull/67) ([kenyon](https://github.com/kenyon))
+- add rhel9 support [\#65](https://github.com/voxpupuli/puppet-openvmtools/pull/65) ([golflimaechoecho](https://github.com/golflimaechoecho))
+- Add Puppet 8 support [\#63](https://github.com/voxpupuli/puppet-openvmtools/pull/63) ([bastelfreak](https://github.com/bastelfreak))
+- puppetlabs/stdlib: Allow 9.x [\#62](https://github.com/voxpupuli/puppet-openvmtools/pull/62) ([bastelfreak](https://github.com/bastelfreak))
+
+**Closed issues:**
+
+- Declare EPEL module compatibile with the latest versions or remove the dependency [\#66](https://github.com/voxpupuli/puppet-openvmtools/issues/66)
+
+**Merged pull requests:**
+
+- Remove legacy top-scope syntax [\#68](https://github.com/voxpupuli/puppet-openvmtools/pull/68) ([smortex](https://github.com/smortex))
+- Fix broken Apache-2 license [\#58](https://github.com/voxpupuli/puppet-openvmtools/pull/58) ([bastelfreak](https://github.com/bastelfreak))
+
 ## [v3.0.0](https://github.com/voxpupuli/puppet-openvmtools/tree/v3.0.0) (2022-08-04)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-openvmtools/compare/v2.1.0...v3.0.0)
