@@ -164,6 +164,11 @@ Pattern to look for in the process table to determine if the daemon is running.
 Only set this if your platform is not supported or you know what you are doing.
 Default: vmtoolsd
 
+##### `supported`
+
+Boolean that overrides the resulte of the supported OS check
+Default: undef
+
 ##### `uninstall_vmware_tools`
 
 Boolean that determines whether the conflicting VMWare Tools package should

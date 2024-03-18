@@ -26,6 +26,14 @@ Install the Open Virtual Machine Tools.
 include openvmtools
 ```
 
+##### Force pass supported os check on OS non in supported list
+
+```puppet
+class { 'openvmtools':
+  supported => true,
+}
+```
+
 #### Parameters
 
 The following parameters are available in the `openvmtools` class:
@@ -41,9 +49,9 @@ The following parameters are available in the `openvmtools` class:
 * [`service_hasstatus`](#-openvmtools--service_hasstatus)
 * [`service_name`](#-openvmtools--service_name)
 * [`service_pattern`](#-openvmtools--service_pattern)
+* [`supported`](#-openvmtools--supported)
 * [`uninstall_vmware_tools`](#-openvmtools--uninstall_vmware_tools)
 * [`with_desktop`](#-openvmtools--with_desktop)
-* [`supported`](#-openvmtools--supported)
 
 ##### <a name="-openvmtools--ensure"></a>`ensure`
 
@@ -147,6 +155,14 @@ doing.
 
 Default value: `undef`
 
+##### <a name="-openvmtools--supported"></a>`supported`
+
+Data type: `Optional[Boolean]`
+
+Boolean that overrides the result of the supported OS check
+
+Default value: `undef`
+
 ##### <a name="-openvmtools--uninstall_vmware_tools"></a>`uninstall_vmware_tools`
 
 Data type: `Boolean`
@@ -163,14 +179,6 @@ Data type: `Boolean`
 Whether or not to install the desktop/GUI support.
 
 Default value: `false`
-
-##### <a name="-openvmtools--supported"></a>`supported`
-
-Data type: `Optional[Boolean]`
-
-
-
-Default value: `undef`
 
 ## Functions
 
