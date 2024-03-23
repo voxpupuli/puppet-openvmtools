@@ -8,10 +8,6 @@
     {
       "name": "puppetlabs/stdlib",
       "version_requirement": ">= 2.3.0 < 10.0.0"
-    },
-    {
-      "name": "puppetlabs/yumrepo_core",
-      "version_requirement": ">=1.0.0 <2.0.0"
     }
   ],
   "issues_url": "https://github.com/voxpupuli/puppet-openvmtools/issues",
