@@ -1,7 +1,14 @@
 # Open Virtual Machine Tools
 
-[![Build Status](https://secure.travis-ci.org/voxpupuli/puppet-openvmtools.png?branch=master)
-](http://travis-ci.org/voxpupuli/puppet-openvmtools)
+[![CI](https://github.com/voxpupuli/puppet-openvmtools/actions/workflows/ci.yml/badge.svg)](https://github.com/voxpupuli/puppet-openvmtools/actions/workflows/ci.yml)
+[![Release](https://github.com/voxpupuli/puppet-openvmtools/actions/workflows/release.yml/badge.svg)](https://github.com/voxpupuli/puppet-openvmtools/actions/workflows/release.yml)
+[![Code Coverage](https://coveralls.io/repos/github/voxpupuli/puppet-openvmtools/badge.svg?branch=master)](https://coveralls.io/github/voxpupuli/puppet-openvmtools)
+[![Puppet Forge](https://img.shields.io/puppetforge/v/puppet/openvmtools.svg)](https://forge.puppetlabs.com/puppet/openvmtools)
+[![Puppet Forge - downloads](https://img.shields.io/puppetforge/dt/puppet/openvmtools.svg)](https://forge.puppetlabs.com/puppet/openvmtools)
+[![Puppet Forge - endorsement](https://img.shields.io/puppetforge/e/puppet/openvmtools.svg)](https://forge.puppetlabs.com/puppet/openvmtools)
+[![Puppet Forge - scores](https://img.shields.io/puppetforge/f/puppet/openvmtools.svg)](https://forge.puppetlabs.com/puppet/openvmtools)
+[![puppetmodule.info docs](http://www.puppetmodule.info/images/badge.png)](http://www.puppetmodule.info/m/puppet-openvmtools)
+[![License](https://img.shields.io/github/license/voxpupuli/puppet-openvmtools.svg)](https://github.com/voxpupuli/puppet-openvmtools/blob/master/LICENSE)
 
 ## Table of Contents
 
@@ -17,7 +24,9 @@
     * [OS Support](#os-support)
     * [Notes](#notes)
     * [Issues](#issues)
-7. [Development - Guide for contributing to the module](#development)
+7. [Changelog](#changelog)
+8. [References](#references)
+9. [Development - Guide for contributing to the module](#development)
 
 ## Overview
 
@@ -186,15 +195,17 @@ Default: false
 
 open-vm-tools is available with these operating systems:
 
-* CentOS 6 and later releases
-* Debian 7.x and later releases
-* Fedora 19 and later releases
+* CentOS 7 and later releases
+* Debian 11 and later releases
+* Fedora 38 and later releases
 * FreeBSD 10 and later releases
-* Oracle Linux 6 and later releases
-* Red Hat Enterprise Linux 6.0 and later releases
+* Oracle Linux 7 and later releases
+* Red Hat Enterprise Linux 7.0 and later releases
 * SUSE Linux Enterprise 12 and later releases
-* Ubuntu 14.04 and later LTS releases
+* Ubuntu 20.04 and later LTS releases
 * openSUSE 11.x and later releases
+* Rocky 8 and later releases
+* AlmaLinux 8 and later releases
 
 ### Notes
 
@@ -207,6 +218,14 @@ open-vm-tools is available with these operating systems:
 ### Issues
 
 * None
+
+## Changelog
+
+see [CHANGELOG.md](CHANGELOG.md)
+
+## References
+
+see [REFERENCE.md](REFERENCE.md)
 
 ## Development
 
