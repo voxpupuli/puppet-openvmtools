@@ -37,7 +37,7 @@ describe 'openvmtools' do
         when 'RedHat'
           is_expected.to contain_service('vgauthd').with(
             ensure: 'running',
-            enable: true
+            enable: true,
           ).that_requires("Package[#{package_name}]")
         end
       }
@@ -45,7 +45,7 @@ describe 'openvmtools' do
       it {
         is_expected.to contain_service(service_name).with(
           ensure: 'running',
-          enable: true
+          enable: true,
         ).that_requires("Package[#{package_name}]")
       }
     end
