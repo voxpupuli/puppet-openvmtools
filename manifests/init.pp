@@ -116,7 +116,7 @@ class openvmtools (
             'bin/vmware-uninstall-tools.pl',
             'lib/vmware-tools'
           )
-          exec { 'vmware-uninstall-tools':
+          exec { 'vmware-uninstall-tools': # lint:ignore:exec_idempotency
             command => "${facts['vmware_uninstaller']} && rm -rf ${vmware_lib} ${facts['vmware_uninstaller']}",
             before  => Package['VMwareTools'],
           }
