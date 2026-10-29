@@ -217,4 +217,3 @@ openvmtools::supported($module_name)
 Data type: `String[1]`
 
 The module name to check.
-

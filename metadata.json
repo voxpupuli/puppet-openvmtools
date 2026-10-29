@@ -7,7 +7,7 @@
     },
     {
       "name": "puppetlabs/stdlib",
-      "version_requirement": ">= 2.3.0 < 10.0.0"
+      "version_requirement": ">= 2.3.0 < 11.0.0"
     }
   ],
   "issues_url": "https://github.com/voxpupuli/puppet-openvmtools/issues",
